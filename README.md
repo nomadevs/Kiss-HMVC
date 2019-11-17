@@ -1,8 +1,5 @@
 # ![Logo](assets/img/kisshmvc.png) (K.I.S.S.H.M.V.C.) Keep-It-Simple-Stupid-Hierarchical-Model-View-Controller (CodeIgniter's illegitimate lovechild ;-)
 
-```// https://demo.citrusdevs.x10.bz/kiss-hmvc/assets/img/kisshmvc.png
-``` 
-
 ![License](https://img.shields.io/badge/Licence-MIT-green.svg)
 ![PHP](https://img.shields.io/badge/php->%3D7.3.7-blue)
 ![Version](https://img.shields.io/badge/version-1.1.0-red)
