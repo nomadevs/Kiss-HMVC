@@ -39,6 +39,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 ## Requirements
 - PHP 7.1 and up!
 - Apache Web Server with *Mod_Rewrite* Enabled.
+- MySQLi
 
 ## Documentation
 ### Documents & Tutorials:
