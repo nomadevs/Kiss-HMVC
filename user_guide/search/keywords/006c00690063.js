@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("lic",["Information"],[["License",,[[,"License Agreement",,,0,"File:Welcome.php:License_Agreement"]]]]);

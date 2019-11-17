@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("pag",["Information"],[["Page",,[[,"Create a Page Module/Controller",,,0,"File:Tutorials.php:Create_a_Page_Module/Controller"]]]]);

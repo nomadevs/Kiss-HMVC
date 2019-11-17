@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("php",["Information"],[["PHP",,[[,,,,0,"File:Terminology.php:PHP"],[,"Create a PHP Framework",,,0,"File:Tutorials.php:Create_a_PHP_Framework"]]]]);
