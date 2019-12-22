@@ -5,6 +5,7 @@
 ![Version](https://img.shields.io/badge/version-1.1.0-red)
 
 > **UPDATES** - Database class needs some work which is one of the reasons the Session class is also having issues. **[12/21/19]**
+
 > **UPDATES** - A bit of rewrite of the framework. The framework now has a working Singleton ( that acts as a super object, just like CodeIgniter ! ) instead of a Registry class. Also, still working out the bugs with the Session class, so I wouldn't autoload it at the moment. **[11/17/19]**
 
 ### PLEASE READ:
