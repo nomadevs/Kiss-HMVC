@@ -18,7 +18,7 @@ $autoload['package'] = array(APPPATH.'third_party'.DIR.'test'.DIR.'test'.PHPXTNS
  * 
  * =======================================================
  */
-$autoload['library'] = array('session');
+$autoload['library'] = array();
 
 /* =======================================================
  *  Autoload Helpers
