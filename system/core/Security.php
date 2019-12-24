@@ -53,18 +53,25 @@ class KISS_Security
   /**
    * Random String With Limit
    * 
-   * Generates a random alphanumeric string and sets a limit based on the digit provided.
+   * Generates a random alphanumeric string and sets a limit based on the digit provided. Optionally, remove ambiguous characters (e.g. 01iloIO) by setting second parameter to TRUE.
    *
    * @param  int  $length
+   * @param  bool $remove_ambiguous_chars (Optional)
    * @return string
    */
-  public function _rand_str_with_limit($length) 
+  public function _rand_limit_str($length, $remove_ambiguous_chars = FALSE) 
   {
     $str = '';
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    for( $i = 0; $i < $length; $i++ ) {
-      $str .= $characters[rand(0, strlen($characters) - 1)];
+    if ( $remove_ambiguous_chars !== FALSE ) {
+      $characters = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+    } else {
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    
+    if ( is_numeric($length) ) {
+      for( $i = 0; $i < $length; $i++ ) {
+        $str .= $characters[rand(0, strlen($characters) - 1)];
+      }
     }
     return $str;
   }

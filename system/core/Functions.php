@@ -1,12 +1,33 @@
 <?php
 
+/**
+ * Get Base URL
+ * 
+ * Attempt to get base URL if nothing is set.
+ *
+ * @param   void
+ * @return  string
+ */
+function get_base_url()
+{
+  $url = explode('/',$_SERVER['REQUEST_URI']);
+  $segmentOne = isset($url[0]) ? $url[0] : '';
+  $segmentTwo = isset($url[1]) ? $url[1] : '';
+  $url = 'http://localhost/' . ($segmentOne ? $segmentOne . '/' : '') . ($segmentTwo ? $segmentTwo : '') . '/';
+  return $url;
+}
+
+
+/*
+ * ======================================================
+ *  XSS Clean Function
+ * ======================================================
+ */
 function xss_clean($str, $is_image = FALSE)
 { 
   $security =& load_class('Security','core');
   return $security->xss_clean($str, $is_image);
 }
-
-
 
 /*
  * ======================================================
@@ -37,7 +58,7 @@ if ( ! function_exists('load_class') )
     {
       if (file_exists($path.$directory.DIR.$class.PHPXTNSN))
       {
-        // If no prefix is set load class anyways
+        // If no prefix is set load class anyways for non-core classes
         if ( (strpos($class,'KISS_') === FALSE) AND ($no_prfx === TRUE) ) 
         {
           $class_name = $class;
@@ -63,7 +84,7 @@ if ( ! function_exists('load_class') )
       echo 'Unable to locate the specified class: '.$class.PHPXTNSN;
     }
 
-    // Keep track of what was loaded so base controller can loop through all the loaded classes
+    // Keep track so base controller can loop through all the classes that were loaded
     is_loaded($class);
     $_classes[$class] = isset($params) ? new $class_name($params) : new $class_name();
     return $_classes[$class];
@@ -96,76 +117,17 @@ if ( ! function_exists('is_loaded') )
   }
 }
 
-
-
-function _is_private( $var )
+function show_404($page = NULL)
 {
-  // Checks first character for underscore, if there is, returns true
-  $uri_to_match = substr($var[0],0,1);
-  if ($uri_to_match === '_') {
-    return TRUE;
-  } else {
-    return FALSE;
-  }
+  $errors =& load_class('Errors','core');
+  return $errors->show_404($page);
 }
-
-
-
-
-
-
-
-
-
-if ( ! function_exists('log_message') )
+  
+function show_error($heading,$message,$error_code)
 {
-  /**
-   * Log Error Messages
-   * 
-   * Logs errors and informational messages to file for debugging.
-   * 
-   * 0 = Disables logging       (Disabled)
-   * 1 = Error Messages         (Error)
-   * 2 = Debug Messages         (Debug)
-   * 3 = Informational Messages (Info)
-   * 4 = All Messages           (All)
-   * 
-   * @param  string $error_lvl
-   * @param  string $error_msg
-   * @return void
-   */
-  function log_message($error_lvl, $error_msg) 
-  {
-    $config =& config();
-    $error_lvl = strtoupper($error_lvl);
-    $log_date = date('Y-m-d-H-i');
- 
-    if ( empty($config['log_path']) ) {
-      //$log_path = $config['log_path'] = APPPATH.'logs\\';
-    }
-
-    $log_path = $config['log_path'] . 'log-' . $log_date . PHPXTNSN;
-    $output = "<?php defined('BASEPATH') OR exit('Direct script access not allowed'); ?>\n\n";
-    $output .= "$error_lvl -- $log_date --> $error_msg\n\n";
-  
-    //$file = fopen($log_path, "ab") or die("Unable to write log, you may not have file permissions, try setting CHMOD to 777.");
-    //fwrite($file, $output);
-    //fclose($file);  
-  }
+  $errors =& load_class('Errors','core');
+  return $errors->show_error($heading,$message,$template = 'custom_errors',$error_code);
 }
-
-
-  function show_404($page = NULL)
-  {
-    $errors =& load_class('Errors','core');
-    return $errors->show_404($page);
-  }
-  
-  function show_error($heading,$message,$error_code)
-  {
-    $errors =& load_class('Errors','core');
-    return $errors->show_error($heading,$message,$template = 'custom_errors',$error_code);
-  }
 
   /**
    * Database configuration
@@ -255,14 +217,12 @@ if ( ! function_exists('log_message') )
   {
     $exception =& load_class('Errors','core');
     $exception->show_exception($e);
-    $exception->log_errors($e->getCode(),$e->getMessage(),$e->getFile(),$e->getLine());
   }
 
   function kiss_errors($errno, $errstr, $errfile, $errline)
   {
     $error =& load_class('Errors','core');
     $error->show_php_error($errno, $errstr, $errfile, $errline);
-    $error->log_errors($errno, $errstr, $errfile, $errline);
   }
 
   // Init Config

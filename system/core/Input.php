@@ -26,7 +26,6 @@ class KISS_Input
   {
     global $Security;
     $this->security = $Security;
-    log_message('info', 'Input Class Initialized');
   }
   
 
@@ -113,6 +112,31 @@ class KISS_Input
     }
 
     setcookie($prefix.$name, $value, $expire, $path, $domain, $secure, $httponly);
+  }
+
+  public function ip_address() 
+  {
+    if ( filter_var($this->server('REMOTE_ADDR'), FILTER_VALIDATE_IP) !== FALSE ) {
+      return $this->server('REMOTE_ADDR',TRUE);
+    } else {
+      return '0.0.0.0';
+    }
+  }
+
+  public function user_agent()
+  {
+    return $this->server('HTTP_USER_AGENT',TRUE);
+  }
+
+  public function server($server = NULL, $xss_clean = FALSE)
+  {
+    if ( isset($_SERVER[$server]) ) {
+      if ( $xss_clean === TRUE ) {
+        return $this->security->xss_clean($_SERVER[$server]);
+      } else {
+        return $_SERVER[$server];
+      }
+    }
   }
 
 }

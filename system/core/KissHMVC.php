@@ -44,7 +44,7 @@ $Security =& load_class('Security', 'core');
 
 
 // Load base controller and base model
-// Extends KISS_ prefix
+// We're able to extend the KISS_ prefix by requiring these two files.
 require_once BASEPATH.'core/Controller'.PHPXTNSN;
 require_once BASEPATH.'core/Model'.PHPXTNSN;
 

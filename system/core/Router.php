@@ -66,7 +66,7 @@ class KISS_Router
 
         if ( ! in_array(array($this->controller),$protected_segments) AND $protected_segments[0] == $this->controller ) {
           if ( $this->_is_private($segment) ) {
-            trigger_error("You don't have access to this file.", E_USER_ERROR);
+            show_404();
           }
         }
       }
@@ -112,7 +112,7 @@ class KISS_Router
         // Check if method or parameter exists
         if ( method_exists($this->controller,$this->action) ) {
           if ( $this->_is_private($this->action) ) {
-            trigger_error("The <b>{$this->action}</b> method you are trying to access is private!", E_USER_WARNING);
+            show_404();
           }
           if ( ! empty($this->params) ) {
             call_user_func_array(array($this->controller,$this->action),$this->params);
@@ -120,7 +120,7 @@ class KISS_Router
             call_user_func(array($this->controller,$this->action));
           }
         } else {
-          trigger_error("The <b>{$this->action}</b> method you are trying to access is either missing, does not exist, or you made a typo!", E_USER_WARNING);
+          show_404();
         }
       }
     }

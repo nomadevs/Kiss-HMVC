@@ -46,7 +46,6 @@ class KISS_Loader
         } else {
           $_library =& load_class($lib,'libraries');
         }
-        log_message('info', 'Library loaded: '.ucfirst($lib));
         
         if ( $lib == 'database') {
           // Initialize variable to prevent errors
@@ -64,7 +63,7 @@ class KISS_Loader
     } else {
       $_library =& load_class($library,'libraries');
     }
-    log_message('info', 'Library loaded: '.ucfirst($library));
+
     if ( $library == 'database') {
       // Initialize variable to prevent errors
       $KISS->db = '';
@@ -86,7 +85,6 @@ class KISS_Loader
 
   public function database()
   {
-    log_message('info', 'Database class loaded');
     $KISS =& get_instance();
     $database =& load_class('Database','database');
     // Initialize variable to prevent errors
@@ -107,8 +105,7 @@ class KISS_Loader
       $_controller_model->db = '';
       $_controller_model->db = $KISS->db;
       if ( file_exists(CTRLPATH.$_controller.PHPXTNSN) ) {
-        require_once CTRLPATH.$_controller.PHPXTNSN;
-        log_message('info', 'Controller loaded: '.ucfirst($_controller));     
+        require_once CTRLPATH.$_controller.PHPXTNSN;     
         if ( count($_controller_segment) > 1 ) {
           $_controller = new $_controller();
           $KISS->$controller = $_controller;
@@ -123,7 +120,6 @@ class KISS_Loader
         $_controller_model = $this->model($_controller_model);
         $_controller_model->db = '';
         $_controller_model->db = $KISS->db;
-        log_message('info', 'Controller loaded: '.ucfirst($controller));
         $_controller = new $controller();
         $_controller->index($data);
         $KISS->$controller = $_controller;
@@ -134,8 +130,7 @@ class KISS_Loader
 
   public function module( $module, $data = array() )
   { 
-    $_module =& load_class('Module','core');
-    if ( $_module->module($module,$data) == FALSE ) {
+    if ( get_instance()->module->module($module,$data) == FALSE ) {
       trigger_error(ucfirst($module).' Module does not exist!',E_USER_WARNING);
     }
   }
@@ -152,14 +147,15 @@ class KISS_Loader
         $this->$kissKey =& $KISS->$kissKey;
       }
     }
-    $module =& load_class('Module','core');
-    if ( $module->view($view,$data) == FALSE ) {
+
+    if ( get_instance()->module->view($view,$data) == FALSE ) {
       $config =& config();
       $rewrite_short_tags = (bool) $config['rewrite_short_tags'];
 
       if ( file_exists(VIEWPATH . $view . PHPXTNSN) ) {
         // Rewrite short open tag for older versions of PHP; Since 5.4.0 short_open_tags always on
-        if ( PHP_VERSION_ID < 50640 AND !ini_get('short_open_tag') AND $rewrite_short_tags !== FALSE ) {
+        // 5.6.40 ~ 50640
+        if ( PHP_VERSION_ID < 50400 AND !ini_get('short_open_tag') AND $rewrite_short_tags !== FALSE ) {
           echo eval('?>'.preg_replace('/;*\s*\?>/', '; ?>', str_replace('<?=', '<?php echo ', file_get_contents(VIEWPATH . $view . PHPXTNSN))));
         } else {
           require_once VIEWPATH . $view . PHPXTNSN;
@@ -175,10 +171,8 @@ class KISS_Loader
 
   public function model($model)
   {
-    $module =& load_class('Module','core');
-    if ( $module->model($model) == FALSE ) {
+    if ( get_instance()->module->model($model) == FALSE ) {
       if ( file_exists(MODELPATH . $model . PHPXTNSN) ) {
-        log_message('info', 'Model loaded: '.ucfirst($model));
         $_model =& load_class($model,'models','',TRUE);
         $KISS =& get_instance();
         $KISS->$model = $_model;
@@ -208,7 +202,6 @@ class KISS_Loader
         foreach( $helper as $hlpr ) {
           if ( file_exists($dir.DIR.$hlpr.HLPRSFX.PHPXTNSN) ) {
             require_once $dir.DIR.$hlpr.HLPRSFX.PHPXTNSN;
-            log_message('info', 'Helper loaded: '.ucfirst($hlpr));
           }
         }
       }
@@ -216,7 +209,6 @@ class KISS_Loader
       foreach( array(APPPATH.'helpers',BASEPATH.'helpers') as $dir ) {
         if ( file_exists($dir.DIR.$helper.HLPRSFX.PHPXTNSN) ) {
           require_once $dir.DIR.$helper.HLPRSFX.PHPXTNSN;
-          log_message('info', 'Helper loaded: '.ucfirst($helper));
         }
       }
     }

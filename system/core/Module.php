@@ -42,7 +42,7 @@ class KISS_Module
       // Check if method or parameter exists
       if ( method_exists($module,$action) ) {
         if ( $_is_private($action) ) {
-          trigger_error("The <b>{$action}</b> method you are trying to access is private!", E_USER_WARNING);
+          show_404();
         }
         if ( ! empty($param) ) {
           call_user_func_array(array($module,$action),$param);
@@ -50,7 +50,7 @@ class KISS_Module
           call_user_func(array($module,$action));
         }
       } else {
-        trigger_error("The <b>{$action}</b> method you are trying to access is either missing, does not exist, or you made a typo!", E_USER_WARNING);
+        show_404();
       }
     } else {
       return FALSE;
@@ -70,13 +70,6 @@ class KISS_Module
   public function module( $module, $data = array())
   {
     $KISS =& get_instance();
-    foreach (get_object_vars($KISS) as $kissKey => $kissVal)
-    {
-      if ( ! isset($this->$kissKey))
-      {
-        $this->$kissKey =& $KISS->$kissKey;
-      }
-    }
     if ( ( strpos($module,'/') !== FALSE ) ) {
 
       $_module_segment = explode('/',$module);
@@ -89,11 +82,10 @@ class KISS_Module
 
       if ( file_exists(MODULEPATH . $_module_controller . DIR . 'controllers' . DIR . $_module_controller . PHPXTNSN) ) {
         require_once MODULEPATH . $_module_controller . DIR . 'controllers' . DIR . $_module_controller . PHPXTNSN;
-        log_message('info', 'Module loaded: '.ucfirst($_module_controller));
         if ( count($_module_segment) > 1 ) {
            $_module = new $_module_controller();
            $KISS->$_module_controller = $_module;
-           $_module->{$_module_segment[1]}($data);
+           $_module->{$_module_segment[1]}($data); // check if private, if has underscore ?
            return $_module;
         } 
       } else {
@@ -102,7 +94,6 @@ class KISS_Module
     } else {   
       if ( file_exists(MODULEPATH . $module . DIR . 'controllers' . DIR . $module . PHPXTNSN) ) {
         require_once MODULEPATH . $module . DIR . 'controllers' . DIR . $module . PHPXTNSN;
-        log_message('info', 'Module loaded: '.ucfirst($module));
         $_module_model = $module.'_model';
         $_module_model = $this->model($module.'/'.$_module_model);
         $_module_model->db = '';
@@ -141,7 +132,6 @@ class KISS_Module
       {
         require_once MODULEPATH . $_module_controller . DIR . 'models' . DIR . $_module_model . PHPXTNSN;
         $_model_path = $_module_controller.DIR.'models';
-        log_message('info', 'Module model loaded: '.ucfirst($_module_model));
         $_model =& load_class($_module_model,$_model_path,'',TRUE);
         $KISS =& get_instance();
         $KISS->$_module_model = $_model;

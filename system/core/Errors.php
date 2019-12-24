@@ -21,22 +21,6 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
 class KISS_Errors
 {
   /**
-   * Error Logger
-   *
-   * Logs PHP generated errors and exceptions to file.
-   * 
-   * @param  int     $error_lvl  Error Level
-   * @param  string  $message    Error Message
-   * @param  string  $filepath   Error File Path
-   * @param  int     $line       Error Line Number
-   * @return void
-   */
-  public function log_errors($error_lvl, $message, $filepath, $line)
-  {
-    log_message('error', 'Severity: '.$error_lvl.' --> '.$message.' '.$filepath.' '.$line);
-  }
-
-  /**
    * Show 404 Error
    *
    * @param	  string  $page
@@ -44,11 +28,10 @@ class KISS_Errors
    */
   public function show_404($page = '')
   {
+    $page = isset($page) ? $page : '404';
     $heading = '404 Page Not Found';
     $message = 'The page you requested was not found.';
-
-    log_message('error', $heading.': '.$page);
-    $this->show_error($heading, $message, '404', 404);
+    $this->show_error($heading, $message, $page, 404);
   }
 
   /**

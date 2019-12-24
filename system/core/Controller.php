@@ -34,7 +34,6 @@ class KISS_Controller
 
     $this->load =& load_class('Loader', 'core');
     $this->input =& load_class('Input', 'core');
-    log_message('info', 'Base Controller Initialized');
   }
 
   /**
