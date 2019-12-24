@@ -9,8 +9,8 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
  *  
  * =======================================================
  */
-$config['base_url']                = 'http://localhost/KISSHMVC/';
-$config['index_page']              = ''; // Default: index.php
+$config['base_url']                = 'http://localhost/KISSHMVC/'; //http://localhost/KISSHMVC/
+
 $config['permitted_uri_chars']     = 'a-z 0-9~%.:_\-'; // Don't edit these unless you know what you're doing!
 /**
  * =======================================================
@@ -25,10 +25,7 @@ $config['permitted_uri_chars']     = 'a-z 0-9~%.:_\-'; // Don't edit these unles
  */
 $config['log_threshold']           = 4; // 1-4 - Higher the digit the more errors are displayed
 $config['ENV']                     = 'production';
-$config['log_path']                = ''; // Directory to store your log files
 $config['error_view_path']         = APPPATH . 'views'.DIR.'errors'.DIR;
-$config['display_errors']          = TRUE; // Set all system errors to on or off
-$config['log_file_permissions']    = 0644; // (0700, 0644, 777, 755, etc.)
 $config['rewrite_short_tags']      = FALSE; // Support for older PHP versions
 /**
  * =======================================================
@@ -51,7 +48,6 @@ $config['sess_expire_on_close']    = FALSE;
 
 
 $config['cookie_prefix']           = '';
-$config['cookie_name']             = ''; // Default: kiss_session
 $config['cookie_domain']           = '';
 $config['cookie_path']             = '/';
 $config['cookie_secure']           = FALSE;
