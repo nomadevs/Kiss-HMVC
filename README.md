@@ -1,10 +1,10 @@
 # ![Logo](assets/img/kisshmvc.png) (K.I.S.S.H.M.V.C.) Keep-It-Simple-Stupid-Hierarchical-Model-View-Controller (CodeIgniter's illegitimate lovechild ;-)
 
 ![License](https://img.shields.io/badge/Licence-MIT-green.svg)
-![PHP](https://img.shields.io/badge/php->%3D7.3.7-blue)
+![PHP](https://img.shields.io/badge/php-<%3D7.3.7-blue)
 ![Version](https://img.shields.io/badge/version-1.1.0-red)
 
-> **UPDATES** - Database class needs some work which is one of the reasons the Session class is also having issues. **[12/21/19]**
+> **UPDATES** - Database class needs some work which is one of the reasons the Session class is also having issues. You may run in to difficulties when running separate or multiple queries. **[12/23/19]**
 
 > **UPDATES** - A bit of rewrite of the framework. The framework now has a working Singleton ( that acts as a super object, just like CodeIgniter ! ) instead of a Registry class. Also, still working out the bugs with the Session class, so I wouldn't autoload it at the moment if I were you or use it for that matter. **[11/17/19]**
 
