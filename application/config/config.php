@@ -24,7 +24,7 @@ $config['permitted_uri_chars']     = 'a-z 0-9~%.:_\-'; // Don't edit these unles
  * =======================================================
  */
 $config['log_threshold']           = 4; // 1-4 - Higher the digit the more errors are displayed
-$config['ENV']                     = 'production';
+$config['ENV']                     = 'development';
 $config['error_view_path']         = APPPATH . 'views'.DIR.'errors'.DIR;
 $config['rewrite_short_tags']      = FALSE; // Support for older PHP versions
 /**
@@ -37,10 +37,10 @@ $config['rewrite_short_tags']      = FALSE; // Support for older PHP versions
  * =======================================================
  */
 $config['encryption_key']          = 'E0i3SfNtntaypu2owlxqdmXBtZ6i0NDm';
-$config['sess_driver']             = 'database';// Options: database or file
+$config['sess_driver']             = ''; // Options: database or file
 $config['sess_cookie_name']        = 'kiss_session';
 $config['sess_expiration']         = 7200;
-$config['sess_save_path']          = 'kiss_sessions'; //APPPATH.'sessions' or kiss_sessions
+$config['sess_save_path']          = ''; // APPPATH.'sessions' or kiss_sessions
 $config['sess_match_ip']           = FALSE;
 $config['sess_time_to_update']     = 300;
 $config['sess_regenerate_destroy'] = FALSE;
