@@ -26,9 +26,18 @@ class KISS_Session
   {
     $this->config =& config();
 
+    $this->config['sess_match_ip'] = ($this->config['sess_match_ip']) ? $this->config['sess_match_ip'] = (bool) $this->config['sess_match_ip'] : FALSE;
+    $this->config['sess_save_path'] = ($this->config['sess_save_path']) ? $this->config['sess_save_path'] : NULL;
+
+    if ( ! empty($this->config['cookie_prefix']) ) {
+      $this->config['cookie_name'] = $this->config['sess_cookie_name'] ? $this->config['cookie_prefix'].$this->config['sess_cookie_name'] : NULL;
+    } else {
+      $this->config['cookie_name'] = $this->config['sess_cookie_name'] ? $this->config['sess_cookie_name'] : NULL;
+    }
+
     if ( ! empty($this->config['sess_driver']) AND $this->config['sess_driver'] == 'database' AND $this->config['sess_save_path'] == 'kiss_sessions' ) {
       require_once 'Session/KissSessionDBHandler'.PHPXTNSN;
-      $session_db_handler = new KissSessionDBHandler();
+      $session_db_handler = new KissSessionDBHandler($this->config);
       session_set_save_handler($session_db_handler, TRUE);
 
     } elseif ( ! empty($this->config['sess_driver']) AND $this->config['sess_driver'] == 'file' ) {
@@ -37,12 +46,6 @@ class KISS_Session
       session_set_save_handler($session_file_handler, TRUE);
     }
 
-    if ( ! empty($this->config['cookie_prefix']) ) {
-      $this->config['cookie_name'] = $this->config['cookie_name'] ? $this->config['cookie_prefix'].$this->config['cookie_name'] : $this->config['sess_cookie_name'];
-    } else {
-      $this->config['cookie_name'] = $this->config['cookie_name'] ? $this->config['cookie_name'] : $this->config['sess_cookie_name'];
-    }
- 
     if (empty($this->config['cookie_name']))
     {
       $this->config['cookie_name'] = ini_get('session.name');
@@ -51,7 +54,6 @@ class KISS_Session
     {
       ini_set('session.name', $this->config['cookie_name']);
     }
-    ini_set('session.name', $this->config['sess_cookie_name']);
 
     if (empty($this->config['sess_expiration']))
     {
@@ -84,9 +86,6 @@ class KISS_Session
       $this->config['cookie_secure'],
       TRUE
     ); // Last param set to TRUE to prevent XSS attacks!
-
-    $this->config['sess_match_ip'] ? (bool) $this->config['sess_match_ip'] : FALSE;
-    $this->config['sess_save_path'] ? $this->config['sess_save_path'] : NULL;
 
     $sid_length = $this->_get_sid_length();
 

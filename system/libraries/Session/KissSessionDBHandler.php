@@ -8,9 +8,9 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
   private $has_rows = FALSE;
   private $is_locked = FALSE;
 
-  public function __construct()
+  public function __construct($config = NULL)
   {
-    $this->config =& config();
+    $this->config = $config;
     $db_config =& db_config();
     $db =& load_class('Database','database',$db_config);
     $this->db = $db;
@@ -32,7 +32,6 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
 
   public function read($session_id)
   {
-    echo $session_id;
     if ($this->lock_session($session_id) === FALSE)
     {
       return FALSE;
@@ -45,25 +44,26 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
     $this->session_id = $session_id;
 
     $table = $this->db->escape_str($this->config['sess_save_path']);
+
     $sql = "SELECT data FROM $table WHERE id = ?";
 
     if ( ! empty($this->config['sess_match_ip']) ) {
-      $sql .= "AND WHERE ip_address = ?";
+      $sql .= "AND ip_address = ?";
       $query = $this->db->query($sql,[$session_id,$_SERVER['REMOTE_ADDR']]);
     } else {
       $query = $this->db->query($sql,[$session_id]);
     }
-    
+
     if ( $query->num_rows() === 0 )
     {
       $this->has_rows = FALSE;
       $this->sess_hash = md5('');
       return '';
     }
-
-    foreach( $query->result() as $row ) {
-      $result = $row->data;
-    }
+    // @TODO get this to return ->data
+    $row = $query->row_array();
+    var_dump($row);
+    $result = '';
 
     $this->sess_hash = md5($result);
     $this->has_rows = TRUE;
@@ -122,7 +122,7 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
    }
  
     if ( ! empty($this->config['sess_match_ip']) ) {
-      $sql .= "AND WHERE ip_address = ?";
+      $sql .= "AND ip_address = ?";
       if ( $this->sess_hash !== md5($data) )
       {
         $query = $this->db->query($sql,[time(),$data,$session_id,$_SERVER['REMOTE_ADDR']]);
@@ -160,7 +160,7 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
       $table = $this->db->escape_str($this->config['sess_save_path']);
       $sql = "DELETE FROM $table WHERE id = ?"; 
       if ( ! empty($this->config['sess_match_ip']) ) {
-        $sql .= "AND WHERE ip_address = ?";
+        $sql .= "AND ip_address = ?";
         $query = $this->db->query($sql,[$session_id,$_SERVER['REMOTE_ADDR']]);
       } else {
         $query = $this->db->query($sql,[$session_id]);
@@ -195,15 +195,13 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
   {
     $sess_to_lock = md5($session_id.($this->config['sess_match_ip'] ? '_'.$_SERVER['REMOTE_ADDR'] : ''));
 
-    $query = $this->db->query("SELECT GET_LOCK('".$sess_to_lock."', 300) AS kiss_session_lock")->result_array();
-    
-      foreach( $query as $key => $lock ) {
-        if ( $lock['kiss_session_lock'] === 1 ) {
+    $lock_query = $this->db->query("SELECT GET_LOCK('".$sess_to_lock."', 300) AS kiss_session_lock")->result_array();
+      foreach( $lock_query as $key => $lock ) {
+        if ( $lock['kiss_session_lock'] ) {
           $this->is_locked = $sess_to_lock;
           return TRUE;
         }
       }
-    
     return FALSE;
   }
 
@@ -213,9 +211,9 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
     {
       return TRUE;
     }
-    $query = $this->db->query("SELECT RELEASE_LOCK('".$this->is_locked."') AS kiss_session_lock")->result_array();
-    foreach( $query as $key => $lock ) {
-      if ( $lock['kiss_session_lock'] === 1 ) { 
+    $lock_query = $this->db->query("SELECT RELEASE_LOCK('".$this->is_locked."') AS kiss_session_lock")->result_array();
+    foreach( $lock_query as $key => $lock ) {
+      if ( $lock['kiss_session_lock'] ) { 
         $this->is_locked = FALSE;
         return TRUE;
       }
@@ -230,7 +228,7 @@ class KissSessionDBHandler extends KISS_Session implements SessionHandlerInterfa
     $table = $this->db->escape_str($this->config['sess_save_path']);
     $sql = "SELECT 1 FROM $table WHERE id = ? ";
     if ( ! empty($this->config['sess_match_ip']) ) {
-      $sql .= "AND WHERE ip_address = ?";
+      $sql .= "AND ip_address = ?";
       $query = $this->db->query($sql,[$id,$_SERVER['REMOTE_ADDR']]);
     } else {
       $query = $this->db->query($sql,[$id]);

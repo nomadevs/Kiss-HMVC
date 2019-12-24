@@ -29,9 +29,10 @@ function form_open( $action = NULL, $attributes = array() )
 {
   $action = strtolower($action);
   $controller = get_instance()->request->_segment(1);
+  $_action = get_instance()->request->_segment(2);
   if ( $action == NULL OR $action == '' ) {
-    $action = '';//index
-    $action = base_url($controller.FS.$action);
+    echo $_action;
+    $action = base_url($controller.FS.$_action);
   } else {
     $count = explode('/',$action);
     if( count($count) < 2 ) {
@@ -62,7 +63,7 @@ function form_close()
 /**
  * Form errors
  *
- * Helper function for custom errors. You can set optional delimiters by passing in tags as a second parameter. The first param specifies a form field for form validation to target.
+ * Helper function for custom errors. You can set optional delimiters by passing in tags as a second parameter. The first parameter specifies a form field for form validation to target.
 
  * @param   string $field
  * @param   string $prefix (optional)
@@ -71,22 +72,19 @@ function form_close()
  */
 function form_error( $field = '', $prefix = '<p>', $suffix = '</p>')
 {
-  $_fields = array($field);
-  //var_dump($_SESSION[$field]);
-   foreach( $_fields as $_field ) {
-  if ( isset($_SESSION[$_field]) ) {
+  if (empty($_SESSION[$field]['error_msg']))
+  {
+    return '';
+  } else {
     $error_prefix = get_instance()->Form_validation->_get_error_prefix();
     $error_suffix = get_instance()->Form_validation->_get_error_suffix();
 
-    $prefix = $error_prefix ? $error_prefix : $prefix;
-    $suffix = $error_suffix ? $error_suffix : $suffix;
-  
-    foreach($_SESSION[$_field] as $form_error) {
-      $error_msg = $prefix.$_SESSION[$_field]['error_msg'].$suffix;
-      unset($_SESSION[$_field]);
-      return $error_msg;
-    }
-  }
+    $prefix = ($error_prefix) ? $error_prefix : $prefix;
+    $suffix = ($error_suffix) ? $error_suffix : $suffix;
+
+    $error_msg = $prefix.$_SESSION[$field]['error_msg'].$suffix;
+    unset($_SESSION[$field]);
+    return $error_msg;  
   }
 }
 
@@ -229,7 +227,7 @@ function form_reset( $data = NULL, $value = NULL, $extra = array() )
  * Converts an array to a string.
  * 
  * @param   mixed  $attributes
- * @return  mixed  (bool|string)
+ * @return  mixed
  */
 function _attributes_to_string($attributes)
 {

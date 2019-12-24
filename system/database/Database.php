@@ -57,7 +57,6 @@ class KISS_Database extends MYSQLI
   private $table;
   private $limit;
   private $order_by;
-  private $is_connected = FALSE;
 
   public function __construct($config = array())
   {
@@ -74,21 +73,17 @@ class KISS_Database extends MYSQLI
       $db_name = isset($db_config['db_name']) ? $db_config['db_name'] : '';
     }
     parent::__construct($db_host, $db_user, $db_pass, $db_name);
-/*    if ( $this->_is_connected() === FALSE ) {
-      $this->is_connected = FALSE;
-    } else {
-      $this->is_connected = TRUE;
-    }*/
-    $this->is_connected = TRUE;
   }
 
   public function is_connected()
   {
-    return $this->is_connected;
+    return (bool) $this->_is_connected();
   }
 
   private function _is_connected()
   {
+    // Check for anything arbitrary or non-specific just to see if 
+    // a connection was established
     $sql  = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS";
     $query = $this->query($sql);
     if ( empty($query->error) ) {
@@ -100,7 +95,7 @@ class KISS_Database extends MYSQLI
         }
       }
     // Reset query to prevent clashes with other queries
-    $this->db->reset_query();
+    $this->reset_query();
     } else {
       return FALSE;
     }
@@ -110,11 +105,20 @@ class KISS_Database extends MYSQLI
   {   
     $this->all_queries[] = $this->query = $sql;
     if ($bind_params === FALSE) {
-      parent::query($this->query);
-      return $this; // Allows for chaining methods
+      if ( ! empty($this->query) ) {
+        parent::query($this->query);
+        return $this; // Allows for chaining methods
+      } else {
+        $this->query = NULL;
+      }
     } else {
-      $this->query = $this->compile_binds($sql, $bind_params);
-      return $this;
+      if ( ! empty($this->query) ) {
+        $this->query = $this->compile_binds($sql, $bind_params);
+        parent::query($this->query);
+        return $this;
+      } else {
+        $this->query = NULL;
+      }
     } 
   }
 
@@ -283,6 +287,8 @@ class KISS_Database extends MYSQLI
 
   public function reset_query()
   {
+    $this->query('');
+    $this->query      = NULL;
     $this->select_max = NULL;
     $this->where      = NULL;
     $this->select     = NULL;
@@ -321,9 +327,9 @@ class KISS_Database extends MYSQLI
   }
 
   /**
-   * ===================================
+   * =======================================
    *   Running Queries and Getting Results
-   * ===================================
+   * =======================================
    */
 
   /**
@@ -359,7 +365,8 @@ class KISS_Database extends MYSQLI
   public function row($num = 0)
   {
     $result = $this->result();
-    if (count($result) == 0)
+    $count_result = (array) $result;
+    if (count($count_result) == 0)
     {
       return NULL;
     }
@@ -367,6 +374,7 @@ class KISS_Database extends MYSQLI
       return $result[$num];
     }
   }
+
 
   /**
    * Result Array
@@ -431,7 +439,8 @@ class KISS_Database extends MYSQLI
     {
       return $this->num_rows = count($this->result_array);
     }
-    return $this->num_rows = count($this->result_array());
+    $count_result = (array) $this->result_array();
+    return $this->num_rows = count($count_result);
   }
 
   /**

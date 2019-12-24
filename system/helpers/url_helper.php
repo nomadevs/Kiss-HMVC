@@ -29,10 +29,10 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
 function redirect( $url = NULL )
 {
   if ( ! empty($_POST) ) {
-    if ( (strpos($url, 'http') !== FALSE) OR (strpos($url, 'www') !== FALSE) OR (strpos($url, 'localhost') !== FALSE) ) {
+    if ( (strpos($url, 'http') !== FALSE) OR (strpos($url, 'www') !== FALSE) OR (strpos($url, 'https') !== FALSE) ) {
       header('Location: ' . $url);
     } else {
-      header('Location: '.BASEURL.$url);
+      header('Location: ' . BASEURL . $url);
     }
   }
 }
@@ -40,7 +40,7 @@ function redirect( $url = NULL )
 /**
  * Base URL
  *
- * If a forward slash is present or nothing is provided, it returns the base_url set in application/config/config.php.
+ * If a forward slash is present or nothing is provided, it returns the base_url set in (application/config/config.php).
  * 
  * @param   string $url
  * @return  string
@@ -64,12 +64,11 @@ function base_url( $url = NULL )
  */
 function site_url( $url = NULL )
 {
-  $first = get_instance()->request->_segment(1);
-  $idx_pg = IDXPG ? IDXPG . FS : NULL;
+  $segmentOne = get_instance()->request->_segment(1);
   if ( $url == NULL OR $url == '/' ) {
-    return BASEURL . $idx_pg . $first;
+    return BASEURL . ($segmentOne ? $segmentOne : '');
   }
-  return BASEURL . $idx_pg . $first . FS . $url;
+  return BASEURL . ($segmentOne ? $segmentOne . '/' : '') . $url;
 }
 
 function url_title($str, $separator = '-', $lowercase = FALSE)

@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
 class KISS_Form_validation 
 {
   private $KISS;
-  private $form_errors     = array();
-  private $custom_errors   = array();
+  private $form_errors   = array();
+  private $custom_errors = array();
+  private $field         = array();
   private $error_prefix;
   private $error_suffix;
-  private $field;
 
   public function __construct()
   {
@@ -38,8 +38,8 @@ class KISS_Form_validation
 
   public function set_rules($field = '', $label = '', $rules = '', $errors = array())
   {
-    $_field = array($field);
-    foreach($_field as $fields) {
+    $_fields = array($field);
+    foreach($_fields as $fields) {
       $this->field[] = $fields;
     }
 
@@ -116,7 +116,7 @@ class KISS_Form_validation
 
   private function xss_clean($field = '', $label = '')
   {
-     echo 'xss_clean';
+     return $this->KISS->security->xss_clean($field);
   }
 
 
@@ -133,23 +133,26 @@ class KISS_Form_validation
         // Don't load anything because rules are set in a controller not a config file!
       }
     }
-
+    // @TODO Each field has two error messages being stored, maybe if i can get rid of one for each field they will display the proper messages ?
     if (isset($_SESSION['form_errors'])) {
       unset($_SESSION['form_errors']);
     }
 
- 
     if ( (count($this->form_errors) > 0) ) {
       $i = 0;
-      foreach( $this->field as $field ) {
-        if (isset($_SESSION[$this->field[$i]])) {
+      foreach( $this->form_errors as $form_error ) 
+      {
+        if ( isset($_SESSION[$this->field[$i]]) ) {
           unset($_SESSION[$this->field[$i]]);
         }
-        $_SESSION[$this->field[$i]]['error_msg'] = $this->_error_placeholders($this->field[$i],$this->form_errors);
-        $i++;
-      }
 
-      $_SESSION['form_errors'] = $this->form_errors;
+        $_SESSION[$this->field[$i]]['error_msg'] = $form_error;
+
+        $i++;
+      } 
+
+      $_SESSION['form_errors'] = $this->form_errors; 
+
       return FALSE;
     } else {
       return TRUE;
