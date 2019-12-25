@@ -4,7 +4,7 @@ Current and upcoming changes to the *KissHMVC* framework.
 ## NOTES
 This isn't a strict changelog. Sometimes, if not many, if i say a bug is fixed it just means it's working for the most part or is a temporary fix. I try to document any changes I make to code. But i do forget sometimes, as well as updating this file.
 ## IDEAS
-- Options to have errors logged instead of displaying straight to screen.
+- 
 
 ## [UNRELEASED]
 - 
