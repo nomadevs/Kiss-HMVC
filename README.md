@@ -4,6 +4,8 @@
 ![PHP](https://img.shields.io/badge/php-<%3D7.3.7-blue)
 ![Version](https://img.shields.io/badge/version-1.1.0-red)
 
+> **UPDATES** - I haven't abandoned this project. I plan on working on it more once I find a job. Also, the Demo link has bugs and is not fully working obviously and is more for show at the moment. **[04/30/20]**
+
 > **UPDATES** - Database class needs some work which is one of the reasons the Session class is also having issues. You may run in to difficulties when running separate or multiple queries. **[12/23/19]**
 
 > **UPDATES** - A bit of rewrite of the framework. The framework now has a working Singleton ( that acts as a super object, just like CodeIgniter ! ) instead of a Registry class. Also, still working out the bugs with the Session class, so I wouldn't autoload it at the moment if I were you or use it for that matter, unless you're testing the form validation which works but also has issues. **[11/17/19]**
