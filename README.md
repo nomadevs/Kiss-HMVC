@@ -4,7 +4,7 @@
 ![PHP](https://img.shields.io/badge/php-<%3D7.3.7-blue)
 ![Version](https://img.shields.io/badge/version-1.1.0-red)
 
-> **UPDATES** - I haven't abandoned this project. I plan on working on it more once I find a job. Also, the Demo link has bugs and is not fully working obviously and is more for show at the moment. **[04/30/20]**
+> **UPDATES** - I haven't abandoned this project. I plan on working on it more once I have time. Also, the Demo link has bugs and is not fully working obviously and is more for show at the moment. **[04/30/20]**
 
 > **UPDATES** - Database class needs some work which is one of the reasons the Session class is also having issues. You may run in to difficulties when running separate or multiple queries. **[12/23/19]**
 
