@@ -4,7 +4,7 @@
 ![PHP](https://img.shields.io/badge/php-<%3D7.3.7-blue)
 ![Version](https://img.shields.io/badge/version-1.1.0-red)
 
-> **UPDATES** - I've begun working on my framework again after a year off. This framework is not currently stable and has loads of issues to resolve (e.g. Problems with Session and Database classes, etc.). However, it does work but I suggest studying my code before using it. I plan on revamping everything including the README file and documentation. So stay tuned! **[12/11/20]**
+> **UPDATES** - I've begun working on my framework again after a year off. This framework is not currently stable and has loads of issues to resolve (e.g. Problems with Session and Database classes, etc.). However, it does work (at least it did) and I'll be uploading a more stable version soon. But I suggest studying my code before using it. I plan on revamping everything including the README file and documentation. So stay tuned! **[12/11/20]**
 
 ### PLEASE READ:
 - Check back often for updates. 
