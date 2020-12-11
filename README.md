@@ -399,7 +399,7 @@ You can view the *CONTRIBUTE* file for information.
 *KissHMVC* is licensed under an MIT License. You can view the *LICENSE* file for information.
 
 ## Credits
-Inspired by CodeIgniter (<https://codeigniter.com>), Jesse Boyer (<http://jream.com>), and John White (<https://github.com/Jontyy>). Also, StackOverflow, YouTube, and Other Online Resources.
+Inspired by CodeIgniter (<https://codeigniter.com>), David Connelly, Jesse Boyer (<http://jream.com>), and John White (<https://github.com/Jontyy>). Also, StackOverflow, YouTube, and Other Online Resources.
 
 ## Contact
 Feel free to get in touch with me via my website: <https://www.cmswebworks.site> and my email: <philosaphylas@gmail.com>!
