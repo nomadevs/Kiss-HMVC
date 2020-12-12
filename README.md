@@ -29,7 +29,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Credits](#credits)
 
 ## Requirements
-- Still testing compatability with 5.6 - 7.3.
+- Still testing compatability with 5.6 - 7.1+.
 
 ## Documentation
 A work in progress. Simply extract the zip file you downloaded from this repository in to your root folder where your website is hosted and navigate to *https://YOUR_WEBSITE/user_guide/ to view the documentation. However, as stated the documentation is extremely lacking at the moment.
@@ -377,4 +377,4 @@ You can view the *CONTRIBUTE* file for information.
 Inspired by CodeIgniter (<https://codeigniter.com>), David Connelly, Jesse Boyer (<http://jream.com>), and John White (<https://github.com/Jontyy>). Also, StackOverflow, YouTube, and Other Online Resources.
 
 ## Contact
-Feel free to get in touch with me via my website: <https://www.cmswebworks.site> and my email: <philosaphylas@gmail.com>!
+Feel free to get in touch with me via my website: <https://mywebfolio.me/ and my email: <philosaphylas@gmail.com>!
