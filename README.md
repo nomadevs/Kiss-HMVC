@@ -6,13 +6,6 @@
 
 > **UPDATES** - I've begun working on my framework again after a year off. This framework is not currently stable and has loads of issues to resolve (e.g. Problems with Session and Database classes, etc.). However, it does work (at least it did) and I'll be uploading a more stable version soon. But I suggest studying my code before using it. I plan on revamping everything including the README file and documentation. So stay tuned! **[12/11/20]**
 
-### PLEASE READ:
-- Check back often for updates. 
-- Check if there's any activity before downloading!
-- Check the *Issues* tab for current issues.
-- Check the *Dev* branch  or *Releases* link for latest versions; I'm planning on creating the dev branch soon for *pull requests*.
-- And, finally check the *CHANGELOG* for any changes!
-
 *KissHMVC* is modeled after the [CodeIgniter](https://codeigniter.com/) framework which I personally like to use because it's simple to understand and isn't bloated like other frameworks. *KissHMVC* follows the same philosophy! KissHMVC uses some modified code from the CodeIgniter framework (**v3.1.11**) and includes any necessary attribution (i.e. copyrights, and licenses). It's also a mashup of my own code, code from around the web, studying everything to the best of my knowledge, a crap load of trial & error, and this is the result! If you trust my code feel free to use it but make sure to keep all licenses and copyrights intact if you plan to make derivatives of it. Especially, since my framework is also a derivative of CodeIgniter and shares the same license! **If you do want to make derivatives of my framework, please let me know so I can mention you on my website!** If you're worried about security be sure to look through my code and make any necessary changes to secure it yourself, if you spot anything I may have missed. I have covered security for the most part so it's fairly secure. However, don't rely on that! My code should be simple enough to understand. I believe code should be simple to read in case you come back to it years later but also for new coders that are still learning themselves.
 
 I'm not claiming to be a PHP expert and like any framework there could be vulnerabilities as I've stated above. **You've been warned!** I'm also not entirely sure how stable my framework is or how well it will hold up to massive applications. But since some of the code used comes from CodeIgniter you should have no problems. I'd be interested to hear back from some of you that have attempted. The great thing about my framework is that it's the best of both worlds. You can use normal MVC which has the added bonus of loading *Controllers* inside other controllers, unlike CodeIgniter, which only lets you load *Models* and *Views* in controllers. Or, you have the option to use *Modules* ( another feature CI doesn't offer straight out of the box ) to organize your application.
@@ -36,15 +29,10 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Credits](#credits)
 
 ## Requirements
-- PHP 7.1 and up!
-- Apache Web Server with *Mod_Rewrite* Enabled.
-- MySQLi
+- Still testing compatability with 5.6 - 7.3.
 
 ## Documentation
-### Documents & Tutorials:
-Included in the extracted zip folder and can be accessed at one of these links whether working locally or online.
-<http://localhost/KissHMVC/user_guide/> ~ OR ~ <http://yourwebsite.com/user_guide/> (A work in progress...)
-- Regarding AJAX (according to the CodeIgniter documentation) if you're using lots of AJAX, use the function session_write_close() 'after you're done processing session data' to ensure the session is closed.
+A work in progress. Simply extract the zip file you downloaded from this repository in to your root folder where your website is hosted and navigate to *https://YOUR_WEBSITE/user_guide/ to view the documentation. However, as stated the documentation is extremely lacking at the moment.
 
 ## Installation
 Setup your *.htaccess* file by navigating to the root of the packaged files. Open the htaccess file and between the forward slashes ( */* ) put your folder or if you have no folder and you extracted to the root of your development server (e.g. *XAMPP*) just put a forward slash.
@@ -75,24 +63,15 @@ $config['base_url']  = 'http://YOUR_DOMAIN/'; // (With folder) http://localhost/
 ```
 Finally, open up your browser (make sure your server software is running), and navigate to: *http:// YOUR_DOMAIN /* and you should be presented with your newly created module or controller.
 
-## Features & Planned
-- Use default MVC, a combination of MVC and modules, or just modules galore!
-- Ability to load Modules ( CodeIgniter doesn't let you do this ! )
-- You can pass an unlimited amount of parameters via the URL.
-- Ability to connect to a separate database by passing in config settings to the database library.
-- Ability to load Controllers inside other controllers ( Another feature CI doesn't offer straight out of the box ! )
-- Lightweight (small footprint)
-- Fast load speed
+## Features
+- Modules are built in to the core instead of you needing to add third parties in order to use HMVC in your project.
 
-### *Upcoming*
-- Ajax CRUD (Maybe)
-- Flashdata (Works but still ironing out the code)
-- Fully Functional Helpers (Works but still not finished, you can use *url_helper* and *form_helper* currently)
-- Fully Functional Libraries (Database and Session Library working so far for the most part, still have more libraries to write)
-- Upload and Search Library (Coming soon!)
-- And more...!
+## Planned / Ideas
+- Ajax CRUD Library Class
+- Upload and Search Library Class
+- And more...?!
 
-# ~ Example Usage ~
+# Tutorials (Example Usages)
 ## Create a Page Controller
 ```php
 <?php
