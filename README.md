@@ -18,7 +18,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Installation](#installation)
   - [Requirements](#requirements)
 - [Documentation](#documentation)
-- [Tutorials](#tutorials)
+- [Tutorials](#tutorials-example-usages)
   - [Create a Page Controller](#create-a-page-controller)
   - [Create a Blog Module](#create-a-blog-module)
   - [Create a Template Module](#create-a-template-module)
