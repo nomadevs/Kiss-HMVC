@@ -32,7 +32,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - Still testing compatability with 5.6 - 7.1+.
 
 ## Documentation
-A work in progress. Simply extract the zip file you downloaded from this repository in to your root folder where your website is hosted and navigate to *https://YOUR_WEBSITE/user_guide/* to view the documentation in your browser. However, as stated previously, the documentation is extremely lacking at the moment.
+A work in progress. Simply extract the zip file you downloaded from this repository in to your root folder where your website is hosted and navigate to: *https://YOUR_WEBSITE/user_guide/*, to view the documentation in your browser. However, as stated previously, the documentation is extremely lacking at the moment.
 
 ## Installation
 Setup your *.htaccess* file by navigating to the root of the packaged files. Open the htaccess file and between the forward slashes ( */* ) put your folder or if you have no folder and you extracted to the root of your development server (e.g. *XAMPP*) just put a forward slash.
