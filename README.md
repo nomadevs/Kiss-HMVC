@@ -65,10 +65,13 @@ Finally, open up your browser (make sure your server software is running), and n
 
 ## Features
 - Modules are built in to the core instead of needing to add third party plugins to use HMVC in your project.
+- Ability to load controllers inside other controllers.
+- 
 
 ## Planned / Ideas
 - Ajax CRUD Library Class
 - Upload and Search Library Class
+- Models built in to the core; Inspired by David Connelly on YouTube except my framework will still have models and the user can create new models to overwrite the core model file.
 - And more...?!
 
 # Tutorials (Example Usages)
