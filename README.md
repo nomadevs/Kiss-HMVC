@@ -64,7 +64,7 @@ $config['base_url']  = 'http://YOUR_DOMAIN/'; // (With folder) http://localhost/
 Finally, open up your browser (make sure your server software is running), and navigate to: *http:// YOUR_DOMAIN /* and you should be presented with your newly created module or controller.
 
 ## Features
-- Modules are built in to the core instead of you needing to add third parties in order to use HMVC in your project.
+- Modules are built in to the core instead of needing to add third party plugins to use HMVC in your project.
 
 ## Planned / Ideas
 - Ajax CRUD Library Class
