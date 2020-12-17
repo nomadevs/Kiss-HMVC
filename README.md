@@ -63,24 +63,17 @@ $config['base_url']  = 'http://YOUR_DOMAIN/'; // (With folder) http://localhost/
 ```
 Finally, open up your browser (make sure your server software is running), and navigate to: *http:// YOUR_DOMAIN /* and you should be presented with your newly created module or controller.
 
-## Features & Planned
-- Use default MVC, a combination of MVC and modules, or just modules galore!
-- Ability to load Modules ( CodeIgniter doesn't let you do this ! )
-- You can pass an unlimited amount of parameters via the URL.
-- Ability to connect to a separate database by passing in config settings to the database library.
-- Ability to load Controllers inside other controllers ( Another feature CI doesn't offer straight out of the box ! )
-- Lightweight (small footprint)
-- Fast load speed
+## Features
+- You can use default MVC or make use of the caked in Modules.
+- You can call controllers from within other controllers.
+- Model written in to the core; An idea inspired by David Connely, except with a twist. The user will still be able to create models that overwrite the core Model.
 
-### *Upcoming*
-- Ajax CRUD (Maybe)
-- Flashdata (Works but still ironing out the code)
-- Fully Functional Helpers (Works but still not finished, you can use *url_helper* and *form_helper* currently)
-- Fully Functional Libraries (Database and Session Library working so far for the most part, still have more libraries to write)
-- Upload and Search Library (Coming soon!)
-- And more...!
+## Planned / Ideas
+- Ajax CRUD Library Class
+- Upload and Search Library Classes
+- And more...?!
 
-# ~ Example Usage ~
+# Tutorials (Example Usage)
 ## Create a Page Controller
 ```php
 <?php
