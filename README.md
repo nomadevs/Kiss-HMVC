@@ -2,20 +2,9 @@
 
 ![License](https://img.shields.io/badge/Licence-MIT-green.svg)
 ![PHP](https://img.shields.io/badge/php-<%3D7.3.7-blue)
-![Version](https://img.shields.io/badge/version-1.1.0-red)
+![Version](https://img.shields.io/badge/version-1.0.0-red)
 
-> **UPDATES** - I haven't abandoned this project. I plan on working on it more once I have time. Also, the Demo link has bugs and is not fully working obviously and is more for show at the moment. **[04/30/20]**
-
-> **UPDATES** - Database class needs some work which is one of the reasons the Session class is also having issues. You may run in to difficulties when running separate or multiple queries. **[12/23/19]**
-
-> **UPDATES** - A bit of rewrite of the framework. The framework now has a working Singleton ( that acts as a super object, just like CodeIgniter ! ) instead of a Registry class. Also, still working out the bugs with the Session class, so I wouldn't autoload it at the moment if I were you or use it for that matter, unless you're testing the form validation which works but also has issues. **[11/17/19]**
-
-### PLEASE READ:
-- Check back often for updates. 
-- Check if there's any activity before downloading!
-- Check the *Issues* tab for current issues.
-- Check the *Dev* branch  or *Releases* link for latest versions; I'm planning on creating the dev branch soon for *pull requests*.
-- And, finally check the *CHANGELOG* for any changes!
+> **UPDATES** - I've begun working on this project again after a year. Going to release a more stable version as soon as I can. Having to restudy my code again but it's coming back to me. **[12/17/20]**
 
 *KissHMVC* is modeled after the [CodeIgniter](https://codeigniter.com/) framework which I personally like to use because it's simple to understand and isn't bloated like other frameworks. *KissHMVC* follows the same philosophy! KissHMVC uses some modified code from the CodeIgniter framework (**v3.1.11**) and includes any necessary attribution (i.e. copyrights, and licenses). It's also a mashup of my own code, code from around the web, studying everything to the best of my knowledge, a crap load of trial & error, and this is the result! If you trust my code feel free to use it but make sure to keep all licenses and copyrights intact if you plan to make derivatives of it. Especially, since my framework is also a derivative of CodeIgniter and shares the same license! **If you do want to make derivatives of my framework, please let me know so I can mention you on my website!** If you're worried about security be sure to look through my code and make any necessary changes to secure it yourself, if you spot anything I may have missed. I have covered security for the most part so it's fairly secure. However, don't rely on that! My code should be simple enough to understand. I believe code should be simple to read in case you come back to it years later but also for new coders that are still learning themselves.
 
@@ -29,7 +18,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Installation](#installation)
   - [Requirements](#requirements)
 - [Documentation](#documentation)
-- Examples
+- Tutorials (Example Usage)
   - [Create a Page Controller](#create-a-page-controller)
   - [Create a Blog Module](#create-a-blog-module)
   - [Create a Template Module](#create-a-template-module)
@@ -40,15 +29,10 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Credits](#credits)
 
 ## Requirements
-- PHP 7.1 and up!
-- Apache Web Server with *Mod_Rewrite* Enabled.
-- MySQLi
+- Still testing compatability with 5.6 - 7.1+
 
 ## Documentation
-### Documents & Tutorials:
-Included in the extracted zip folder and can be accessed at one of these links whether working locally or online.
-<http://localhost/KissHMVC/user_guide/> ~ OR ~ <http://yourwebsite.com/user_guide/> (A work in progress...)
-- Regarding AJAX (according to the CodeIgniter documentation) if you're using lots of AJAX, use the function session_write_close() 'after you're done processing session data' to ensure the session is closed.
+A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder where you're hosting your website and navigate to: <https://www.your_website.com/user_guide> **OR** <https://localhost/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
 
 ## Installation
 Setup your *.htaccess* file by navigating to the root of the packaged files. Open the htaccess file and between the forward slashes ( */* ) put your folder or if you have no folder and you extracted to the root of your development server (e.g. *XAMPP*) just put a forward slash.
@@ -399,7 +383,7 @@ You can view the *CONTRIBUTE* file for information.
 *KissHMVC* is licensed under an MIT License. You can view the *LICENSE* file for information.
 
 ## Credits
-Inspired by CodeIgniter (<https://codeigniter.com>), Jesse Boyer (<http://jream.com>), and John White (<https://github.com/Jontyy>). Also, StackOverflow, YouTube, and Other Online Resources.
+Inspired by CodeIgniter (<https://codeigniter.com>), David Connelly (<https://www.youtube.com/user/davidconnelly>), Jesse Boyer (<http://jream.com>), and John White (<https://github.com/Jontyy>). Also, StackOverflow, YouTube, and Other Online Resources.
 
 ## Contact
-Feel free to get in touch with me via my website: <https://www.cmswebworks.site> and my email: <philosaphylas@gmail.com>!
+Feel free to get in touch with me via my website: <https://mywebfolio.me> and my email: <philosaphylas@gmail.com>!
