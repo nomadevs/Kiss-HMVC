@@ -1,20 +1,22 @@
 <?php
 /**
- * Base Controller
+ * Controller Class
  *  
- * Base controller that all controllers extend. This controller is also a singleton and acts as a registry.
+ * All child controllers extend from this class. This class functions
+ * as a singleton that loads everything as a super-object.
  *  
- * @package     KissHMVC
+ * @package     Kiss-HMVC
  * @subpackage  Core
  * @category    Base Controller
- * @author      CitrusDevs
- * @link        https://demo.citrusdevs.x10.bz/kiss-hmvc
- * @copyright   Copyright (c) 2019 CitrusDevs (https://www.citrusdevs.x10.bz/)
- * @copyright   Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/, https://codeigniter.com/)
- * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @license     MIT License (https://opensource.org/licenses/MIT)
- * @version     1.1.0
- * @todo        
+ * @author      nomadevs
+ * @link        https://nomadevs.github.io/Kiss-HMVC
+ * @copyright   Copyright (c) 2020, nomadevs <https://nomadevs.github.io/Kiss-HMVC>
+ * @copyright   Copyright (c) 2020, David Connelly <https://trongate.io>
+ * @copyright   Copyright (c) 2014 - 2020, British Columbia Institute of Technology <https://codeigniter.com>
+ * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. <https://ellislab.com>
+ * @license     MIT License <https://opensource.org/licenses/MIT>
+ * @version     1.0.0
+ * @todo        ...        
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 

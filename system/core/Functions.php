@@ -1,4 +1,23 @@
 <?php
+/**
+ * Functions
+ *  
+ * Helper functions with global scope used by core files
+ *  
+ * @package     Kiss-HMVC
+ * @subpackage  Core
+ * @category    Global Functions
+ * @author      nomadevs
+ * @link        https://nomadevs.github.io/Kiss-HMVC
+ * @copyright   Copyright (c) 2020, nomadevs <https://nomadevs.github.io/Kiss-HMVC>
+ * @copyright   Copyright (c) 2020, David Connelly <https://trongate.io>
+ * @copyright   Copyright (c) 2014 - 2020, British Columbia Institute of Technology <https://codeigniter.com>
+ * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. <https://ellislab.com>
+ * @license     MIT License <https://opensource.org/licenses/MIT>
+ * @version     1.0.0
+ * @todo        ...         
+ */
+defined('BASEPATH') OR exit('Direct script access not allowed');
 
 /**
  * Get Base URL

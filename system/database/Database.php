@@ -2,8 +2,8 @@
 /**
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2019, CitrusDevs
- * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+ * Copyright (c) 2020, nomadevs
+ * Copyright (c) 2014 - 2020, British Columbia Institute of Technology
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,21 +25,22 @@
  */
 
 /**
- * KissHMVC Database Class
+ * Database Class
  *  
- * Database results, query building, etc.
+ * Displaying results, running queries, connecting to database, and CRUD tasks
  *  
- * @package     KissHMVC
+ * @package     Kiss-HMVC
  * @subpackage  Database
  * @category    Database
- * @author      CitrusDevs
- * @link        https://demo.citrusdevs.x10.bz/kiss-hmvc
- * @copyright	Copyright (c) 2019 CitrusDevs (https://www.citrusdevs.x10.bz/)
- * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/, https://codeigniter.com/)
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @license     MIT License (https://opensource.org/licenses/MIT)
- * @version     1.1.0
- * @todo        
+ * @author      nomadevs
+ * @link        https://nomadevs.github.io/Kiss-HMVC
+ * @copyright   Copyright (c) 2020, nomadevs <https://nomadevs.github.io/Kiss-HMVC>
+ * @copyright   Copyright (c) 2020, David Connelly <https://trongate.io>
+ * @copyright   Copyright (c) 2014 - 2020, British Columbia Institute of Technology <https://codeigniter.com>
+ * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. <https://ellislab.com>
+ * @license     MIT License <https://opensource.org/licenses/MIT>
+ * @version     1.0.0
+ * @todo        ...       
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 

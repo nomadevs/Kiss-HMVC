@@ -2,19 +2,20 @@
 /**
  * Security Class
  *  
- * Security related tasks.
+ * Sanitize post data, and other security related tasks
  *  
- * @package     KissHMVC
+ * @package     Kiss-HMVC
  * @subpackage  Core
  * @category    Security
- * @author      CitrusDevs
- * @link        https://demo.citrusdevs.x10.bz/kiss-hmvc
- * @copyright	Copyright (c) 2019 CitrusDevs (https://www.citrusdevs.x10.bz/)
- * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/, https://codeigniter.com/)
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @license     MIT License (https://opensource.org/licenses/MIT)
- * @version     1.1.0
- * @todo        
+ * @author      nomadevs
+ * @link        https://nomadevs.github.io/Kiss-HMVC
+ * @copyright   Copyright (c) 2020, nomadevs <https://nomadevs.github.io/Kiss-HMVC>
+ * @copyright   Copyright (c) 2020, David Connelly <https://trongate.io>
+ * @copyright   Copyright (c) 2014 - 2020, British Columbia Institute of Technology <https://codeigniter.com>
+ * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. <https://ellislab.com>
+ * @license     MIT License <https://opensource.org/licenses/MIT>
+ * @version     1.0.0
+ * @todo        ...         
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 

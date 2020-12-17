@@ -4,7 +4,7 @@
  *
  * Give a description.
  *  
- * @package     KissHMVC
+ * @package     Kiss-HMVC
  * @subpackage  Modules
  * @category    Module Controller
  * @author      Your Name or Company
@@ -16,7 +16,7 @@
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 
-class New_module extends KISS_Controller 
+class New_module_controller extends KISS_Controller 
 {
   public function __construct()
   {

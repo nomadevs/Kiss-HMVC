@@ -4,7 +4,7 @@
  *
  * Give a description.
  *  
- * @package     KissHMVC
+ * @package     Kiss-HMVC
  * @subpackage  Modules
  * @category    Module Model
  * @author      Your Name or Company
