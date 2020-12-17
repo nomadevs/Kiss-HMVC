@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("hmv",["Information"],[["HMVC",,[[,"MVC vs. HMVC",,"mvc vs.hmvc",0,"File:Terminology.php:MVC_vs.HMVC"]]]]);

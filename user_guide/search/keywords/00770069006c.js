@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("wil",["Information"],[["Wildcards",,[[,,,,0,"File:Terminology.php:Wildcards"]]]]);

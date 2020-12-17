@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("wid",["Information"],[["Widgets",,[[,,,,0,"File:Terminology.php:Widgets"]]]]);

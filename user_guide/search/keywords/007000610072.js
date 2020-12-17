@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("par",["Information"],[["Partials",,[[,"Loading View Partials",,,0,"File:General_Topics.php:Loading_View_Partials"],[,"View Partials",,,0,"File:Terminology.php:View_Partials"]]]]);

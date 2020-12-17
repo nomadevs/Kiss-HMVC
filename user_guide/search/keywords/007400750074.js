@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("tut",["Section"],[["Tutorials",,[[,,,,0,"File:Tutorials.php:Tutorials"]]]]);

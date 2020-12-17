@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("vie",["Information"],[["View",,[[,"View Partials",,,0,"File:Terminology.php:View_Partials"],[,"Loading View Partials",,,0,"File:General_Topics.php:Loading_View_Partials"]]],["views",,[[,"Loading views",,,0,"File:General_Topics.php:Loading_views"]]]]);

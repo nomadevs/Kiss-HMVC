@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("tem",["Information"],[["Template",,[[,"Create a Template Module",,,0,"File:Tutorials.php:Create_a_Template_Module"]]]]);

@@ -1,1 +1,0 @@
-NDMenu.OnSectionLoaded("files.js",[[1,"Contributing.php"],[1,"General_Topics.php"],[1,"Installation.php"],[1,"Terminology.php"],[1,"Tidbits.php"],[1,"Tutorials.php"],[1,"Welcome.php"]]);

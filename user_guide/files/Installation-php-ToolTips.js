@@ -1,1 +1,0 @@
-NDContentPage.OnToolTipsLoaded({4:"<div class=\"NDToolTip TInformation LPHP\"><div class=\"TTSummary\">Wildcards are placeholders that represent a controller, method, or parameter for a routed path.</div></div>"});

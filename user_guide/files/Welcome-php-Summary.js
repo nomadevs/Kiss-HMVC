@@ -1,1 +1,0 @@
-NDFramePage.OnPageTitleLoaded("File:Welcome.php","Welcome.php");NDSummary.OnSummaryLoaded("File:Welcome.php",[["PHP","PHP"]],[["Groups","Group"],["Information","Information"],["Sections","Section"]],[[29,0,0,"Information","Information"],[20,0,1,"Welcome to KissHMVC","Welcome_to_KissHMVC"],[30,0,1,"License Agreement","License_Agreement"],[19,0,2,"Changelog","Changelog"]]);

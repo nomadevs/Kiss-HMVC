@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("hyp",["Information"],[["Hypertext",,[[,,,,0,"File:Terminology.php:Hypertext"]]]]);

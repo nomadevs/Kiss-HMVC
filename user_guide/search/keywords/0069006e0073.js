@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("ins",["Information"],[["Installation",,[[,,,,0,"File:Installation.php:Installation"]]]]);
