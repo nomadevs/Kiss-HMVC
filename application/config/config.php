@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
  *  
  * =======================================================
  */
-$config['base_url']                = 'http://localhost/KISSHMVC/'; //http://localhost/KISSHMVC/
+$config['base_url']                = ''; //http://localhost/KISSHMVC/
 
 $config['permitted_uri_chars']     = 'a-z 0-9~%.:_\-'; // Don't edit these unless you know what you're doing!
 /**
