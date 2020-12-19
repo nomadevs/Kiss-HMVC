@@ -362,7 +362,7 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
 
     <h2>Dashboard</h2>
 
-    <footer>© Copyright 2019</footer>
+    <footer>© Copyright 2020</footer>
   </body>
 </html>
 ```
