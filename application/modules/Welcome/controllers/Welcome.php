@@ -41,7 +41,9 @@ class Welcome extends KISS_Controller
 
   public function index()
   {
-    $this->load->view('Welcome/welcome');
+    $data['page_title'] = "Welcome to Kiss-HMVC!";
+    $data['body_class'] = "welcome";
+    $this->load->view('Welcome/welcome',$data);
   }
 
   
