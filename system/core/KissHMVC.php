@@ -19,7 +19,7 @@
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 
-const KISS_VERSION = '1.1.0';
+const KISS_VERSION = '1.0.0';
 
 // Application Constants
 if ( file_exists(APPPATH.'config/constants'.PHPXTNSN) )
