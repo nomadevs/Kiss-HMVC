@@ -2,7 +2,7 @@
 /**
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2020, nomadevs
+ * Copyright (c) 2020, nomadevs, https://mywebfolio.me/
  * Copyright (c) 2014 - 2020, British Columbia Institute of Technology
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,7 +40,7 @@
  * @copyright   Copyright (c) 2008 - 2014, EllisLab, Inc. <https://ellislab.com>
  * @license     MIT License <https://opensource.org/licenses/MIT>
  * @version     1.0.0
- * @todo        ...       
+ * @todo        Move helper functions below to Database Library class
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 

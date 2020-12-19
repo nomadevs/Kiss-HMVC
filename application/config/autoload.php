@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
  * 
  * =======================================================
  */
-$autoload['package'] = array(APPPATH.'third_party'.DIR.'test'.DIR.'test'.PHPXTNSN);
+$autoload['package'] = array();
 
 /* =======================================================
  *  Autoload Libraries

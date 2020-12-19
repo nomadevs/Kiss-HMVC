@@ -9,9 +9,10 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
  *  
  * =======================================================
  */
-$config['base_url']                = ''; //http://localhost/KISSHMVC/
+$config['base_url']                = '';
 
-$config['permitted_uri_chars']     = 'a-z 0-9~%.:_\-'; // Don't edit these unless you know what you're doing!
+// Don't edit these unless you know what you're doing!
+$config['permitted_uri_chars']     = 'a-z 0-9~%.:_\-'; 
 /**
  * =======================================================
  *  Error Handling                       
@@ -27,6 +28,7 @@ $config['log_threshold']           = 4; // 1-4 - Higher the digit the more error
 $config['ENV']                     = 'development';
 $config['error_view_path']         = APPPATH . 'views'.DIR.'errors'.DIR;
 $config['rewrite_short_tags']      = FALSE; // Support for older PHP versions
+
 /**
  * =======================================================
  *  Session & Cookies                       
@@ -36,7 +38,7 @@ $config['rewrite_short_tags']      = FALSE; // Support for older PHP versions
  *
  * =======================================================
  */
-$config['encryption_key']          = 'E0i3SfNtntaypu2owlxqdmXBtZ6i0NDm';
+$config['encryption_key']          = '';
 $config['sess_driver']             = ''; // Options: database or file
 $config['sess_cookie_name']        = 'kiss_session';
 $config['sess_expiration']         = 7200;
@@ -45,8 +47,6 @@ $config['sess_match_ip']           = FALSE;
 $config['sess_time_to_update']     = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 $config['sess_expire_on_close']    = FALSE;
-
-
 $config['cookie_prefix']           = '';
 $config['cookie_domain']           = '';
 $config['cookie_path']             = '/';

@@ -13,4 +13,4 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
 $database['db_host']  = 'localhost';
 $database['db_user']  = 'root';
 $database['db_pass']  = '';
-$database['db_name']  = 'YOUR_DB_NAME';
+$database['db_name']  = '';
