@@ -1,18 +1,34 @@
-<?php 
+<?php
+/**
+ * Constants
+ *  
+ * Framework constants necessary for the system to run.
+ *  
+ * @package     Kiss-HMVC
+ * @subpackage  Core
+ * @category    Framework Constants
+ * @author      nomadevs
+ * @link        https://mywebfolio.me/
+ * @copyright   Copyright (c) 2020, nomadevs, https://mywebfolio.me/Kiss-HMVC/
+ * @copyright   Copyright (c) 2020, David Connelly, https://trongate.io/
+ * @copyright   Copyright (c) 2014 - 2020, British Columbia Institute of Technology, https://codeigniter.com/
+ * @copyright   Copyright (c) 2008 - 2014, EllisLab, https://ellislab.com/
+ * @license     MIT License, https://opensource.org/licenses/MIT
+ * @version     1.0.0
+ * @todo        ...         
+ */ 
 defined('BASEPATH') OR exit('Direct script access not allowed');
 /*
 | ===============================================================================
 |  Framework Constants
 | ===============================================================================
-|
-|  Framework constants necessary for the system to run.
 |  
 |  Please Note:
 |  
 |  It's not recommended to define your constants here unless you know what
-|  what you're doing. You can create your own constants by navigating here: 
-|  /application/config/constants.php
-|
+|  what you're doing. You can create your own constants here: 
+|  ~/application/config/constants.php
+|  
 | ===============================================================================
 |    
 */
