@@ -36,6 +36,7 @@ class KISS_Controller
 
     $this->load =& load_class('Loader', 'core');
     $this->input =& load_class('Input', 'core');
+    $this->uri = $this->request;
   }
 
   /**

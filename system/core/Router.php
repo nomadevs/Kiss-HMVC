@@ -26,24 +26,23 @@ class KISS_Router
   private $module;
   private $action;
   private $params;
-  private $uri;
+  private $request;
 
-  public function __construct($routes = NULL)
+  public function __construct($request = NULL)
   {
-  	$this->uri                = $routes;
-    $this->controller         = $this->uri->_get_controller();
-    $this->module             = $this->uri->_get_module();
-    $this->action             = $this->uri->_get_action();
-    $this->params             = $this->uri->_get_params();
+    $this->request    = $request;
+    $this->controller = $this->request->_get_controller();
+    $this->module     = $this->request->_get_module();
+    $this->action     = $this->request->_get_action();
+    $this->params     = $this->request->_get_params();
     $this->_secure_backend();
   }
 
 
   public function _secure_backend()
   {
-    $uri = $this->uri->_segments();
     $protected_segments = array('application','system');
-    foreach( $uri as $segment ) 
+    foreach( get_segments() as $segment ) 
     {
       foreach( $protected_segments as $ps ) 
       {
@@ -90,7 +89,7 @@ class KISS_Router
       return $this->_is_private($action);
     };
 
-    if ( $module->get_module($this->module, $this->action, $this->params,$_is_private) == FALSE ) {
+    if ( $module->get_module($this->module, $this->action, $this->params,$_is_private) === FALSE ) {
 
       // Check if controller exists
       if ( file_exists(CTRLPATH . $this->controller . PHPXTNSN) ) {

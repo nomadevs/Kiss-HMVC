@@ -38,7 +38,6 @@ set_exception_handler('kiss_exceptions');
 register_shutdown_function('kiss_shutdown');
 
 // Instantiate core classes
-
 $Request  =& load_class('Request', 'core');
 $Router   =& load_class('Router', 'core', $Request);
 $Security =& load_class('Security', 'core');

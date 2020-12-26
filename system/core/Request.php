@@ -25,7 +25,7 @@ class KISS_Request
   private $rsegments          = array();
   private $params             = array();
   private $default_controller = NULL;
-  private $error_controller   = 'errors';
+  private $error_controller   = 'error';
   private $default_action     = 'index';
   private $controller;
   private $module;
@@ -34,6 +34,7 @@ class KISS_Request
 
   public function __construct()
   {
+    $this->_set_error_controller();
     $this->_set_requests();
     $this->_set_routes();
     $this->_set_params();
@@ -42,12 +43,12 @@ class KISS_Request
     $this->action = $this->_rsegment(2) ? $this->_rsegment(2) : $this->default_action;
   }
 
-  public function _segment($num = NULL)
+  public function segment($num = 0)
   {
     return isset($this->segments[$num]) ? $this->segments[$num] : NULL;
   }
 
-  public function _rsegment($num = NULL)
+  public function _rsegment($num = 0)
   {
     return isset($this->rsegments[$num]) ? $this->rsegments[$num] : NULL;
   }
@@ -74,7 +75,7 @@ class KISS_Request
 
   public function _is_module( $module )
   {
-    if ( is_dir( MODULEPATH . $module ) ) {
+    if ( is_dir(MODULEPATH . ucfirst($module)) AND is_file(MODULEPATH . ucfirst($module) . '/controllers/' . ucfirst($module) . PHPXTNSN) ) {
       return TRUE;
     } else {
       return FALSE;
@@ -89,6 +90,11 @@ class KISS_Request
   public function _get_action()
   {
     return $this->action;
+  }
+  
+  public function _get_error()
+  {
+    return $this->error_controller;  
   }
 
   /**
@@ -112,63 +118,65 @@ class KISS_Request
       $uri = implode('/', $uri);
 
       isset($route['default_controller']) ? $this->default_controller = $route['default_controller'] : $this->default_controller;
-      isset($route['404_override']) ? $this->error_controller = $route['404_override'] : $this->error_controller;
-
+      isset($route['custom_errors']) ? $this->error_controller = $route['custom_errors'] : $this->error_controller;
+      
       // Check for wildcards
       foreach( $route as $key => $val )
       {
+        $key = $this->_set_default_controller($key,$val);
+               
         // Convert wildcards to regular expressions
         $key = str_replace(array(':any', ':num'), array('[^/]+', '[0-9]+'), $key);
-
+        
         // Does uri match custom route ?
         if ( preg_match('#^'.$key.'$#', $uri, $matches) )
         {
+			 
           // Does the key/value pair contain the following characters, if so, then we're using wildcards!
           if ( strpos($val, '$') !== FALSE AND strpos($key, '(') !== FALSE ) 
-          { 
+          {  
             // Replaces val placeholders/wildcards with the matching uri segment
             $val = preg_replace('#^'.$key.'$#', $val, $uri);
           }
+          
           $this->_set_route(explode('/', $val));
           return; // stop script
         }
       }
     }
-    // If no custom routes are set, set default routes
+    // If no custom routes are set, set route from url
     $this->_set_route(array_values($this->_segments())); 
   }
 
   public function _set_route($route = NULL)
   {
-    // All custom and default routes get piped through this method and starting index gets set to 1
-    if (empty($route) AND strpos($this->default_controller, '/'))
-    {
-      $route = explode('/',$this->default_controller);
-    }
-    elseif (empty($route))
-    {
-      $route = array($this->default_controller);
-    }
-
-
-
-    if ( $this->error_controller == 'errors' ) {
-      $error_message = '';
-      $this->error_controller = 'errors/show_error/'.$error_message;
-      $route = explode('/',$this->error_controller);
-    } else {
-      //$route = explode('/',$this->error_controller);
-    }
-  
+    // Resets index and sets route segments
     $count = 0;
     foreach( $route as $_route ) {
       $count++;
        $this->rsegments[$count] = $_route;
     }
- 
   }
 
-
+  public function _set_default_controller($key,$val)
+  {
+    $key = str_replace('default_controller','',$key);
+    if ( $key === '' AND empty($val) ) 
+    {
+      show_error('You need to set a default controller!','Set a default controller in ~/application/config/routes.php.');
+    }
+    return $key;
+  }
+  
+  public function _set_error_controller()
+  {
+    if ( $this->error_controller === 'error' ) { 
+      // some code
+    } else {
+      // some code
+    }
+    return;
+  }
 
   public function _set_requests()
   {

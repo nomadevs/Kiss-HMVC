@@ -34,7 +34,7 @@ class KISS_Loader
    * @param   array  $library
    * @param   array  $config (optional)
    * @return  object $_library
-   * @todo    Also, check in application folder for custom libraries
+   * @todo    
    */
   public function library($library,$config = array())
   {
@@ -42,35 +42,36 @@ class KISS_Loader
     // Loading multiple libraries, checking for additional parameters, and whether database is being loaded.
     if ( is_array($library) ) {
       foreach( $library as $lib ) {
+        $lib = ucfirst($lib);
         if ( ! empty($config) AND is_array($config) ) {
           $_library =& load_class($lib,'libraries',$config);
         } else {
           $_library =& load_class($lib,'libraries');
         }
-        
-        if ( $lib == 'database') {
-          // Initialize variable to prevent errors
+              
+        if ( $lib == 'Database') {
+          // Initialize variable to prevent undefined error
           $KISS->db = '';
           $KISS->db = $_library;
-        } else {
-          $KISS->$lib = $_library;
+          $KISS->$lib = $_library; //Dynamically creates properties
         }
         return $_library;
       }
     }
+    
     // Checking for additional parameters, and whether database is being loaded
+    $library = ucfirst($library);
     if ( ! empty($config) AND is_array($config) ) {
       $_library =& load_class($library,'libraries',$config);
     } else {
       $_library =& load_class($library,'libraries');
     }
-
-    if ( $library == 'database') {
-      // Initialize variable to prevent errors
+    
+    if ( $library == 'Database') {
+      // Initialize variable to prevent undefined error
       $KISS->db = '';
       $KISS->db = $_library;
-    } else {
-      $KISS->$library = $_library; // Acts as a registry
+      $KISS->$library = $_library; //Dynamically creates properties
     } 
     return $_library;
   }
@@ -199,17 +200,17 @@ class KISS_Loader
   {
     // Load multiple helpers
     if ( is_array($helper) ) {
-      foreach( array(APPPATH.'helpers',BASEPATH.'helpers') as $dir ) {
+      foreach( array(HLPRPATH) as $hlpr_path ) {
         foreach( $helper as $hlpr ) {
-          if ( file_exists($dir.DIR.$hlpr.HLPRSFX.PHPXTNSN) ) {
-            require_once $dir.DIR.$hlpr.HLPRSFX.PHPXTNSN;
+          if ( file_exists($hlpr_path.$hlpr.HLPRSFX.PHPXTNSN) ) {
+            require_once $hlpr_path.$hlpr.HLPRSFX.PHPXTNSN;
           }
         }
       }
     } else {
-      foreach( array(APPPATH.'helpers',BASEPATH.'helpers') as $dir ) {
-        if ( file_exists($dir.DIR.$helper.HLPRSFX.PHPXTNSN) ) {
-          require_once $dir.DIR.$helper.HLPRSFX.PHPXTNSN;
+      foreach( array(HLPRPATH) as $hlpr_path ) {
+        if ( file_exists($hlpr_path.$helper.HLPRSFX.PHPXTNSN) ) {
+          require_once $hlpr_path.$helper.HLPRSFX.PHPXTNSN;
         }
       }
     }
@@ -227,7 +228,6 @@ class KISS_Loader
   public function _autoloader()
   {
     $autoload =& autoload_config();
-
     if ( isset( $autoload['library'][0] ) ) {
       $this->library($autoload['library']);
     }

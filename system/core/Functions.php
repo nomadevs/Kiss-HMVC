@@ -36,6 +36,24 @@ function get_base_url()
   return $url;
 }
 
+function get_segment($num = 0)
+{
+  $uri =& load_class('Request','core');
+  return $uri->segment($num); // needs fix: rendering text to screen
+}
+
+function get_segments()
+{
+  $uri =& load_class('Request','core');
+  return $uri->_segments();
+}
+
+function get_current_url()
+{
+  $current_url =& load_class('Loader','core');
+  $current_url->helper('url');
+  return current_url();	
+}
 
 /*
  * ======================================================
@@ -138,14 +156,14 @@ if ( ! function_exists('is_loaded') )
 
 function show_404($page = NULL)
 {
-  $errors =& load_class('Errors','core');
+  $errors =& load_class('Error','core');
   return $errors->show_404($page);
 }
   
-function show_error($heading,$message,$error_code)
+function show_error($heading,$message,$template = 'Custom_Errors',$error_code = 500)
 {
-  $errors =& load_class('Errors','core');
-  return $errors->show_error($heading,$message,$template = 'custom_errors',$error_code);
+  $errors =& load_class('Error','core');
+  return $errors->show_error($heading,$message,$template,$error_code);
 }
 
   /**
@@ -154,7 +172,7 @@ function show_error($heading,$message,$error_code)
    * Return DB by Reference, this function must be appended to a variable.
    * 
    * @param  void
-   * @return static array $db_config
+   * @return static array $database
    */
   function &db_config()
   {
@@ -234,13 +252,13 @@ function show_error($heading,$message,$error_code)
 
   function kiss_exceptions($e)
   {
-    $exception =& load_class('Errors','core');
+    $exception =& load_class('Error','core');
     $exception->show_exception($e);
   }
 
   function kiss_errors($errno, $errstr, $errfile, $errline)
   {
-    $error =& load_class('Errors','core');
+    $error =& load_class('Error','core');
     $error->show_php_error($errno, $errstr, $errfile, $errline);
   }
 

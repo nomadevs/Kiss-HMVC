@@ -7,9 +7,13 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
  *
  *  Set your custom routes.
  * 
+ *  NOTE: 
+ *  If not specifying a method, keep the foward 
+ *  slash (e.g. Welcome/) until a suitable fix
+ *  removes the need.
+ * 
  * ===========================================
  */
- 
-$route['404_override']       = '';
-$route['default_controller'] = 'Welcome/index';
-$route['(:any)']             = 'Pages/view/$1';
+
+$route['custom_errors']       = '';
+$route['default_controller'] = 'Welcome/'; // Welcome/index

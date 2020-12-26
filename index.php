@@ -1,15 +1,17 @@
 <?php
 /**
- * @package    KissHMVC Framework
- * @author     CitrusDevs <philosaphylas@gmail.com>
- * @copyright  Copyright (c) 2019 CitrusDevs (https://www.citrusdevs.x10.bz/)
- * @copyright  Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/, https://codeigniter.com/)
- * @copyright  Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @license    MIT License (https://opensource.org/licenses/MIT)
- * @link       https://demo.citrusdevs.x10.bz/kiss-hmvc
- * @credits    Inspired by CodeIgniter, Jesse Boyer <contact@jream.com>, John White <https://github.com/Jontyy>, StackOverflow, YouTube, and other online resources.
- * @version    1.1.0
- * @todo       Create 4 error levels 1-4
+ * @package     Kiss-HMVC
+ * @category    Fontend
+ * @author      nomadevs
+ * @link        https://mywebfolio.me/
+ * @copyright   Copyright (c) 2020, nomadevs, https://mywebfolio.me/Kiss-HMVC/
+ * @copyright   Copyright (c) 2020, David Connelly, https://trongate.io/
+ * @copyright   Copyright (c) 2014 - 2020, British Columbia Institute of Technology, https://codeigniter.com/
+ * @copyright   Copyright (c) 2008 - 2014, EllisLab, https://ellislab.com/
+ * @license     MIT License, https://opensource.org/licenses/MIT
+ * @version     1.0.0
+ * @credits     CodeIgniter (https://codeigniter.com), David Connelly (https://trongate.ip), Jesse Boyer (https://jream.com), and many other resources.
+ * @todo       ...
  */
 
 // Define framework constants

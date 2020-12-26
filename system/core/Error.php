@@ -1,6 +1,6 @@
 <?php
 /** 
- * Errors Class
+ * Error Class
  *  
  * Displays framework errors, and logs error messages.
  * 
@@ -19,7 +19,7 @@
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
 
-class KISS_Errors
+class KISS_Error
 {
   /**
    * Show 404 Error
@@ -43,10 +43,10 @@ class KISS_Errors
    * @param   string  $heading         Error Heading
    * @param   string  $message         Error Message
    * @param   string  $template        Error Template
-   * @param   int     $error_lvl_code  Error Level
+   * @param   int     $error_code      Error Level
    * @return  void
    */
-  public function show_error($heading, $message, $template = 'custom_errors', $error_lvl_code = 500)
+  public function show_error($heading, $message, $template = 'Custom_Errors', $error_code = 500)
   {
     $config =& config();
     $template_path = $config['error_view_path'];
@@ -55,7 +55,7 @@ class KISS_Errors
     {
       $template_path = VIEWPATH.'errors'.DIR;
     }
-    http_response_code($error_lvl_code);
+    http_response_code($error_code);
     require_once($template_path.$template.'.php');
     die();
   }

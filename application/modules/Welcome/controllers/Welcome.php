@@ -31,12 +31,12 @@ class Welcome extends KISS_Controller
    * By default this module is set as the default controller in:
    * ~/application/config/routes.php
    *
-   *    /index.php/<module>/<method>/<param>
+   * ~/index.php/<module>/<method>/<param>
    * 
    */
   public function __construct()
   {
-    parent::__construct();
+    parent::__construct();	
   }
 
   public function index()

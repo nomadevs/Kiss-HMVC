@@ -18,7 +18,7 @@ $autoload['package'] = array();
  * 
  * =======================================================
  */
-$autoload['library'] = array();
+$autoload['library'] = array('database');
 
 /* =======================================================
  *  Autoload Helpers

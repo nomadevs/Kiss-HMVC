@@ -29,8 +29,8 @@ defined('BASEPATH') OR exit('Direct script access not allowed');
 function form_open( $action = NULL, $attributes = array() )
 {
   $action = strtolower($action);
-  $controller = get_instance()->request->_segment(1);
-  $_action = get_instance()->request->_segment(2);
+  $controller = get_segment(1);
+  $_action = get_segment(2);
   if ( $action == NULL OR $action == '' ) {
     echo $_action;
     $action = base_url($controller.FS.$_action);

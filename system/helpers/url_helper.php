@@ -61,15 +61,29 @@ function base_url( $url = NULL )
  * 
  * @param   string $url
  * @return  string
- * @todo    Include segments from Request class
+ * @todo    ...
  */
 function site_url( $url = NULL )
 {
-  $segmentOne = get_instance()->request->_segment(1);
+  $segment_one = get_segment(1);
   if ( $url == NULL OR $url == '/' ) {
-    return BASEURL . ($segmentOne ? $segmentOne : '');
+    return BASEURL . ($segment_one ? $segment_one : '');
   }
-  return BASEURL . ($segmentOne ? $segmentOne . '/' : '') . $url;
+  return BASEURL . ($segment_one ? $segment_one . '/' : '') . $url;
+}
+
+/**
+ * Current URL
+ *
+ * Gets current URL
+ * 
+ * @param   void
+ * @return  string
+ * @todo    ...
+ */
+function current_url()
+{
+  return site_url(get_segment(2));
 }
 
 function url_title($str, $separator = '-', $lowercase = FALSE)

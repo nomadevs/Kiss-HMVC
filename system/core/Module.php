@@ -37,8 +37,9 @@ class KISS_Module
    */
   public function get_module($module, $action, $param, $_is_private)
   {
-    if ( file_exists(MODULEPATH . $module . DIR . 'controllers' . DIR . $module .  PHPXTNSN) AND is_dir(MODULEPATH . $module) ) {
-      require_once MODULEPATH . $module . DIR . 'controllers' . DIR . $module .  PHPXTNSN;
+	$Request =& load_class('Request','core');
+    if ( $Request->_is_module($module) ) {
+      require_once MODULEPATH . ucfirst($module) . '/controllers/' . ucfirst($module) .  PHPXTNSN;
       $module = new $module();
       // Check if method or parameter exists
       if ( method_exists($module,$action) ) {

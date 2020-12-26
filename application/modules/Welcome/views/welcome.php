@@ -49,7 +49,7 @@
       #body {
         margin: 0 15px 0 15px;
       }
-
+      
       #footer {
         color: #dd4814;
         text-align: right;
@@ -70,10 +70,9 @@
   <body class="<?php echo $body_class; ?>">
     <div id="container">
       <h1><?php echo $page_title; ?></h1>
-
       <div id="body">
-        
-        <p>KissHMVC dynamically rendered this page.</p>
+		  
+        <h2>KissHMVC dynamically rendered this page.</h2>
 
         <p>If you would like to edit this page you can do so by navigating here:</p>
         <code>application/modules/Welcome/views/welcome.php</code>
@@ -81,7 +80,7 @@
         <p>The module controller for this page is located here:</p>
         <code>application/modules/Welcome/controllers/Welcome.php</code>
 
-        <p>To get stated, vist the <a href="./user_guide/">User Guide</a>.</p>
+        <p>To get stated, vist the <a href="<?php echo base_url('user_guide'); ?>">User Guide</a>.</p>
 		
       </div>
       <footer id="footer" class="footer">KissHMVC Version <strong><?php echo KISS_VERSION; ?></strong></footer>

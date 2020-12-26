@@ -38,6 +38,7 @@ define('VIEWPATH', APPPATH.'views'.DIR);
 define('MODELPATH',APPPATH.'models'.DIR);
 define('CTRLPATH',APPPATH.'controllers'.DIR);
 define('MODULEPATH',APPPATH .'modules'.DIR);
+define('ERRORPATH','');
 define('DBPATH',BASEPATH.'database'.DIR);
 define('LIBPATH',BASEPATH.'libraries'.DIR);
 define('HLPRPATH',BASEPATH.'helpers'.DIR);

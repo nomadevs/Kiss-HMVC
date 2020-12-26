@@ -40,13 +40,13 @@
  * @copyright   Copyright (c) 2008 - 2014, EllisLab, https://ellislab.com/
  * @license     MIT License, https://opensource.org/licenses/MIT
  * @version     1.0.0
- * @todo        Move helper functions below to Database Library class
+ * @todo        Move helper functions below to Database Library class; Extend PDO instead ?
  */
 defined('BASEPATH') OR exit('Direct script access not allowed');
-
+ 
 class KISS_Database extends MYSQLI
 {
-  private $db;
+  private $SQLite3;
   private $query;
   private $all_queries    = array();
   private $result_object  = array();
@@ -58,22 +58,35 @@ class KISS_Database extends MYSQLI
   private $table;
   private $limit;
   private $order_by;
-
+ 
   public function __construct($config = array())
   {
     $db_config =& db_config();
     if ( ! empty($config) ) {
-      $db_host = isset($config['db_host']) ? $config['db_host'] : 'localhost';
-      $db_user = isset($config['db_user']) ? $config['db_user'] : 'root';
-      $db_pass = isset($config['db_pass']) ? $config['db_pass'] : '';
-      $db_name = isset($config['db_name']) ? $config['db_name'] : '';
+      if ( empty($config['db_driver']) ) {
+        $db_host = isset($config['db_host']) ? $config['db_host'] : 'localhost';
+        $db_user = isset($config['db_user']) ? $config['db_user'] : 'root';
+        $db_pass = isset($config['db_pass']) ? $config['db_pass'] : '';
+        $db_name = isset($config['db_name']) ? $config['db_name'] : '';
+        parent::__construct($db_host, $db_user, $db_pass, $db_name);
+      } else {
+        if ( $config['db_driver'] == 'sqlite3' ) {
+          $this->SQLite3 = new SQLite3($config['db_name'],SQLITE3_OPEN_READWRITE);
+        }
+	  }
     } else {
-      $db_host = isset($db_config['db_host']) ? $db_config['db_host'] : 'localhost';
-      $db_user = isset($db_config['db_user']) ? $db_config['db_user'] : 'root';
-      $db_pass = isset($db_config['db_pass']) ? $db_config['db_pass'] : '';
-      $db_name = isset($db_config['db_name']) ? $db_config['db_name'] : '';
+      if ( empty($db_config['db_driver']) ) {
+        $db_host = isset($db_config['db_host']) ? $db_config['db_host'] : 'localhost';
+        $db_user = isset($db_config['db_user']) ? $db_config['db_user'] : 'root';
+        $db_pass = isset($db_config['db_pass']) ? $db_config['db_pass'] : '';
+        $db_name = isset($db_config['db_name']) ? $db_config['db_name'] : '';
+        parent::__construct($db_host, $db_user, $db_pass, $db_name);
+      } else {
+        if ( $db_config['db_driver'] == 'sqlite3' ) {
+          $this->SQLite3 = new SQLite3($db_config['db_name'],SQLITE3_OPEN_READWRITE);
+        }
+	  }
     }
-    parent::__construct($db_host, $db_user, $db_pass, $db_name);
   }
 
   public function is_connected()
@@ -104,6 +117,7 @@ class KISS_Database extends MYSQLI
 
   public function query($sql = NULL, $bind_params = FALSE) 
   {   
+	 //switch statement ?
     $this->all_queries[] = $this->query = $sql;
     if ($bind_params === FALSE) {
       if ( ! empty($this->query) ) {
@@ -388,14 +402,22 @@ class KISS_Database extends MYSQLI
    */
   public function result_array()
   {
-    if ($result = parent::query($this->query)) {
+    if ( empty($this->SQLite3) ) {
+      if ($result = parent::query($this->query)) {
 
-      /* Fetch associative array */
-      while ($row = $result->fetch_assoc()) {
+        /* Fetch associative array */
+        while ($row = $result->fetch_assoc()) {
+          $this->result_array[] = $row;
+        }
+        return $this->result_array;
+      }
+    } else {
+      $results = $this->SQLite3->query($this->query);
+      while($row = $results->fetchArray()) {
         $this->result_array[] = $row;
       }
       return $this->result_array;
-    }
+	}
   }
 
   /**
