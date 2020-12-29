@@ -39,13 +39,13 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder of your webhost or your development server and navigate to: <https://<your_website>/user_guide> **OR** <http://<localhost>/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
 
 ## Installation
-Edit your .htaccess file and make sure *mod_rewrite* is enabled.
+Edit your *.htaccess* file and make sure *mod_rewrite* is enabled.
 
 #### *Htaccess Template*
 ```MYSQL
-## I've placed an *HTACCESS* file for your convenience at the root of the zip file.
-## If you plan on running your app from a folder then set that below in your *HTACCESS* file. If not,
-## and you extracted the contents in the root, then change *RewriteBase* to a forward slash (*/*).
+## I've placed an HTACCESS file for your convenience at the root of the zip file.
+## If you plan on running your app from a folder then set that below in your HTACCESS file. If not,
+## and you extracted the contents to the root, then change RewriteBase to a forward slash (/).
 RewriteEngine On
 Options -Indexes
 RewriteBase /<your_folder>/
