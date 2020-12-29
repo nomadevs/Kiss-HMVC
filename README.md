@@ -33,6 +33,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 
 ## Requirements
 - Still testing compatability with 5.6 - 7.1+
+- SQLite3 (not fully working yet)
 
 ## Documentation
 A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder where you're hosting your website and navigate to: <https://www.your_website.com/user_guide> **OR** <https://localhost/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
@@ -49,7 +50,7 @@ If you're not using a folder you don't need to include the directory, so you can
 ## If you extracted your installation to a folder that would be located here (C:\xampp\htdocs\YOUR_FOLDER)
 RewriteEngine On
 Options -Indexes
-RewriteBase /YOUR_FOLDER/
+RewriteBase /<your_folder>/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
@@ -58,22 +59,22 @@ Then, in your **routes.php** file (*application/config/routes.php*) set your *de
 
 ```PHP
 // application/config/routes.php
-$route['default_controller']   = 'Your_Controller/index'; // Alternatively, you can specify a module here as well
+$route['default_controller']   = '<your_controller>/<index>'; // Alternatively, you can specify a module here as well
 ```
 Next, in your **config.php** file (*application/config/config.php*) set your *base_url* to:
 ```PHP
-$config['base_url']  = 'http://YOUR_DOMAIN/'; // (With folder) http://localhost/YOUR_FOLDER/
+$config['base_url']  = 'http://<your_website>/'; // (With folder) http://<your_website>/<your_folder>/
 ```
 Finally, open up your browser (make sure your server software is running), and navigate to: *http:// YOUR_DOMAIN /* and you should be presented with your newly created module or controller.
 
 ## Features
 - You can use default MVC or make use of the caked in Modules.
 - You can call controllers from within other controllers.
-- Model written in to the core; An idea inspired by David Connely, except with a twist. The user will still be able to create models that overwrite the core Model.
 
 ## Planned / Ideas
 - Ajax CRUD Library Class
-- Upload and Search Library Classes
+- Upload and Search Library Classes 
+- Model written in to the core; An idea inspired by David Connely, except with a twist. The user will still be able to create models that overwrite the core Model.
 - And more...?!
 
 # Tutorials (Example Usage)
@@ -112,13 +113,13 @@ $route['(:any)']               = 'Pages/index/$1';
 ```
 
 ## Loading a Module View
-(**NOTE:** This may change in the future [i.e. you would load views the same way as default MVC]).
+**NOTE:** This may change in the future (i.e. you would load views the same way as default MVC).
 
-Kiss-HMVC loads module views slightly different to avoid conflicts. To load a module view you simply specify
-the module the view is contained in followed by the view you're trying to load. For example:
+Kiss-HMVC loads module views slightly different to avoid conflicts. To load a module *view* you simply specify
+the module the *view* is contained in followed by the *view* you're trying to load. For example:
 
 ```PHP
-$this->load->view('MODULE_FOLDER/VIEW_FILE');
+$this->load->view('<module_folder>/<view_file>');
 ```
 
 ## Create a Blog Module
