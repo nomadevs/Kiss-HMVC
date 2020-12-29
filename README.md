@@ -22,7 +22,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Documentation](#documentation)
 - [Tutorials (Example Usage)](#tutorials-example-usage)
   - [Create a Page Controller](#create-a-page-controller)
-  - Loading a Module View](#loading-a-module-view)
+  - [Loading a Module View](#loading-a-module-view)
   - [Create a Blog Module](#create-a-blog-module)
   - [Create a Template Module](#create-a-template-module)
 - [Contribute](#contribute)
