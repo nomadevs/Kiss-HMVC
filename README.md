@@ -36,18 +36,16 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - SQLite3 (not fully working yet)
 
 ## Documentation
-A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder where you're hosting your website and navigate to: <https://www.your_website.com/user_guide> **OR** <https://localhost/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
+A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder of your webhost or your development server and navigate to: <https://<your_website>/user_guide> **OR** <http://<localhost>/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
 
 ## Installation
-Setup your *.htaccess* file by navigating to the root of the packaged files. Open the htaccess file and between the forward slashes ( */* ) put your folder or if you have no folder and you extracted to the root of your development server (e.g. *XAMPP*) just put a forward slash.
-
-### For example:
-If you're not using a folder you don't need to include the directory, so you can just put a forward slash ( e.g. ```RewriteBase /``` ), otherwise, set *RewriteBase* to ``RewriteBase /YOUR_FOLDER/`` like the example below.
-
+Edit your .htaccess file and make sure *mod_rewrite* is enabled.
 
 #### *Htaccess Template*
-```SQL // Apparently there's no syntax highlighting for .htaccess files, so I put 'sql' for the language, so I can comment below
-## If you extracted your installation to a folder that would be located here (C:\xampp\htdocs\YOUR_FOLDER)
+```MYSQL
+## I've placed an *HTACCESS* file for your convenience at the root of the zip file.
+## If you plan on running your app from a folder then set that below in your *HTACCESS* file. If not,
+## and you extracted the contents in the root, then change *RewriteBase* to a forward slash (*/*).
 RewriteEngine On
 Options -Indexes
 RewriteBase /<your_folder>/
@@ -59,13 +57,13 @@ Then, in your **routes.php** file (*application/config/routes.php*) set your *de
 
 ```PHP
 // application/config/routes.php
-$route['default_controller']   = '<your_controller>/<index>'; // Alternatively, you can specify a module here as well
+$route['default_controller']   = '<your_controller>/index'; // Alternatively, you can specify a module here as well
 ```
 Next, in your **config.php** file (*application/config/config.php*) set your *base_url* to:
 ```PHP
 $config['base_url']  = 'http://<your_website>/'; // (With folder) http://<your_website>/<your_folder>/
 ```
-Finally, open up your browser (make sure your server software is running), and navigate to: *http:// YOUR_DOMAIN /* and you should be presented with your newly created module or controller.
+Finally, open up your browser (make sure your server software is running), and navigate to: *http://<your_website>/* and you should be presented with your newly created module or controller.
 
 ## Features
 - You can use default MVC or make use of the caked in Modules.
