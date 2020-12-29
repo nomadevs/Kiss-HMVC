@@ -22,6 +22,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Documentation](#documentation)
 - [Tutorials (Example Usage)](#tutorials-example-usage)
   - [Create a Page Controller](#create-a-page-controller)
+  - Loading a Module View](#loading-a-module-view)
   - [Create a Blog Module](#create-a-blog-module)
   - [Create a Template Module](#create-a-template-module)
 - [Contribute](#contribute)
@@ -110,8 +111,8 @@ $route['default_controller']   = 'Pages/index';
 $route['(:any)']               = 'Pages/index/$1';
 ```
 
-## Loading Module Views
-(NOTE: This may change in the future [i.e. you would load views the same way as default MVC]).
+## Loading a Module View
+(**NOTE:** This may change in the future [i.e. you would load views the same way as default MVC]).
 
 Kiss-HMVC loads module views slightly different to avoid conflicts. To load a module view you simply specify
 the module the view is contained in followed by the view you're trying to load. For example:
