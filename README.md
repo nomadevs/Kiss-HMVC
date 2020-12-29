@@ -110,6 +110,16 @@ $route['default_controller']   = 'Pages/index';
 $route['(:any)']               = 'Pages/index/$1';
 ```
 
+## Loading Module Views
+(NOTE: This may change in the future [i.e. you would load views the same way as default MVC]).
+
+Kiss-HMVC loads module views slightly different to avoid conflicts. To load a module view you simply specify
+the module the view is contained in followed by the view you're trying to load. For example:
+
+```PHP
+$this->load->view('MODULE_FOLDER/VIEW_FILE');
+```
+
 ## Create a Blog Module
 ```PHP
 <?php
