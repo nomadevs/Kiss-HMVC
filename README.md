@@ -22,6 +22,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - [Documentation](#documentation)
 - [Tutorials (Example Usage)](#tutorials-example-usage)
   - [Create a Page Controller](#create-a-page-controller)
+  - [Simple and Secure Way of Including CSS and JS](simple-and-secure-way-of-including-css-and-js)
   - [Loading a Module View](#loading-a-module-view)
   - [Create a Blog Module](#create-a-blog-module)
   - [Create a Template Module](#create-a-template-module)
@@ -36,7 +37,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - SQLite3 (not fully working yet)
 
 ## Documentation
-A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder of your webhost or your development server and navigate to: <https://<your_website>/user_guide> **OR** <http://<localhost>/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
+A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder of your webhost or your development server and navigate to: <https://<your_website>/user_guide> **OR** <http://<your_localhost>/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
 
 ## Installation
 Edit your *.htaccess* file and make sure *mod_rewrite* is enabled.
@@ -130,8 +131,8 @@ I've created two global helper functions. Simply call:
 ```get_scripts();``` or ```get_styles();``` inside of your 
 view files. Once you've done that an error message will appear 
 requesting you to create some folders and files. By *default* if
-no parameters is passed specifying a custom *stylesheet* or *script* 
-the framework will try to find it for you. It will search for a CSS or JS
+no parameters are passed specifying a custom *stylesheet* or *script*, 
+the framework will try to find it for you. It will search for a *css* or *js* 
 file containing the same name as the module it exists in. If you'd like to
 specify a *script* or *stylesheet* with a different name pass it in, for example:
 ```get_styles('my_styles');``` and create it in the same *css* folder.
