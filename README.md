@@ -70,6 +70,7 @@ Finally, open up your browser (make sure your server software is running), and n
 - You can call controllers from within other controllers.
 
 ## Planned / Ideas
+- Include JS and CSS by calling ```get_scripts();``` and ```get_styles();``` (Haven't uploaded the changes yet but they work.)
 - Ajax CRUD Library Class
 - Upload and Search Library Classes 
 - Model written in to the core; An idea inspired by David Connely, except with a twist. The user will still be able to create models that overwrite the core Model.
@@ -119,6 +120,21 @@ the module the *view* is contained in followed by the *view* you're trying to lo
 ```PHP
 $this->load->view('<module_folder>/<view_file>');
 ```
+## Simple and Secure Way of Including CSS and JS
+**NOTE:** I haven't uploaded the changes to github, 
+so this doesn't work just yet. But the functions do
+work in my local repository and should work as soon 
+as I *push* them to github.
+
+I've created two global helper functions. Simply call:
+```get_scripts();``` or ```get_styles();``` inside of your 
+view files. Once you've done that an error message will appear 
+requesting you to create some folders and files. By *default* if
+no parameters is passed specifying a custom *stylesheet* or *script* 
+the framework will try to find it for you. It will search for a CSS or JS
+file containing the same name as the module it exists in. If you'd like to
+specify a *script* or *stylesheet* with a different name pass it in, for example:
+```get_styles('my_styles');``` and create it in the same *css* folder.
 
 ## Create a Blog Module
 ```PHP
