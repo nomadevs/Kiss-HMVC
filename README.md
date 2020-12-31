@@ -37,7 +37,7 @@ Furthermore, I'm still working out the bugs, fine tuning things, and studying Co
 - SQLite3 (not fully working yet)
 
 ## Documentation
-A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder of your webhost or your development server and navigate to: <https://<your_website>/user_guide> **OR** <http://<your_localhost>/user_guide> in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
+A work in progress; Simply extract the zip folder you downloaded from this repository in to the root folder of your webhost or your development server and navigate to: https://<your_website>/user_guide **OR** http://<your_localhost>/user_guide in your browser to view the documentation. However, documenation is lacking at the moment. I'll be making progress on it as soon as possible.
 
 ## Installation
 Edit your *.htaccess* file and make sure *mod_rewrite* is enabled.
