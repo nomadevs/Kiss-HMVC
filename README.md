@@ -1,8 +1,12 @@
-# ![Logo](assets/img/kisshmvc.png) (K.I.S.S.H.M.V.C.) Keep-It-Simple-Stupid-Hierarchical-Model-View-Controller (CodeIgniter's illegitimate lovechild ;-)
+# ![Logo](assets/img/kisshmvc.png) **K.I.S.S.H.M.V.C.** (Keep-It-Simple-Stupid-Hierarchical-Model-View-Controller) - CodeIgniter's illegitimate lovechild ;-)
+
+Powered by Coffee and Solar! Literally, I'm living off a battery and caffeine to make this possible.
 
 ![License](https://img.shields.io/badge/Licence-MIT-green.svg)
 ![PHP](https://img.shields.io/badge/php-<%3D7.3.7-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-red)
+
+> **UPDATES** - I've fixed a lot of problems I didn't even know existed. I guess that's a sign my web development skills are improving. Still waiting for more reliable internet to upload all the changes. I'm literally chipping away to get everything working. **[01/01/21]**
 
 > **UPDATES** - I've made some progress on my framework. A lot of improvements and fixed bugs. Still has some, however. I can't update the repository until I renew my data plan very soon. Planning on switching carriers for truly unlimited internet, but I digress. I'm also integrating SQLite3 in to the Database class as a "driver" for those interested in Dev testing. **[12/22/20]**
 
