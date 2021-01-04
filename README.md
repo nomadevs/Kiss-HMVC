@@ -16,7 +16,7 @@ Powered by Coffee and Solar! Literally, I'm living off a battery and caffeine to
 
 I'm not claiming to be a PHP expert and like any framework there could be vulnerabilities as I've stated above. **You've been warned!** I'm also not entirely sure how stable my framework is or how well it will hold up to massive applications. But since some of the code used comes from CodeIgniter you should have no problems. I'd be interested to hear back from some of you that have attempted. The great thing about my framework is that it's the best of both worlds. You can use normal MVC which has the added bonus of loading *Controllers* inside other controllers, unlike CodeIgniter, which only lets you load *Models* and *Views* in controllers. Or, you have the option to use *Modules* ( another feature CI doesn't offer straight out of the box ) to organize your application.
 
-If you're familiar with CodeIgniter then *KissHMVC* will be easy to learn. I'm not trying to compete with other frameworks although that may be a possibility in the future depending on any contributers that would like to help me make that a reality and also my ability to make progress on it myself. I'd also like to make a side note that there's a framework coming out in the beginning of 2021 called [Trongate](https://trongate.io/) by a YouTuber (David Connelly) which will also have similar syntax to CodeIgniter and also make use of Modules. So if you like CodeIgniter and Modules then you will also want to check that out and especially since that will be much safer to use than my framework at the moment.
+If you're familiar with CodeIgniter then *KissHMVC* will be easy to learn. I'm not trying to compete with other frameworks although that may be a possibility in the future depending on any contributers that would like to help me make that a reality and also my ability to make progress on it myself.
 
 Furthermore, I'm still working out the bugs, fine tuning things, and studying CodeIgniter's code to get a general idea of how it works so I can make the necessary changes in my framework minus things I don't want in my framework. So keep checking back often for updates as I continue to make progress! If you would like to contribute, give me coding tips, please contact me [here](#contact). I look forward to hearing from you and happy coding! =^)
 
@@ -409,7 +409,7 @@ You can view the *CONTRIBUTE* file for information.
 *KissHMVC* is licensed under an MIT License. You can view the *LICENSE* file for information.
 
 ## Credits
-Inspired by CodeIgniter (<https://codeigniter.com>), David Connelly (<https://trongate.io/>), Jesse Boyer (<http://jream.com>), and John White (<https://github.com/Jontyy>). Also, StackOverflow, YouTube, and Other Online Resources.
+Inspired by CodIigniter, StackOverflow, YouTube, and Other Online Resources.
 
 ## Contact
 Feel free to get in touch with me via my website: <https://mywebfolio.me> and my email: <philosaphylas@gmail.com>!
