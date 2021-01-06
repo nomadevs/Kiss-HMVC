@@ -75,10 +75,11 @@ Finally, open up your browser (make sure your server software is running), and n
 - You can call controllers from within other controllers.
 
 ## Planned / Ideas
+- Form validation works now! I'll be uploading the changes in the next day or so. Some minor bugs still, however. This was a pain in the butt to get working.
 - Include JS and CSS by calling ```get_scripts();``` and ```get_styles();``` (Haven't uploaded the changes yet but they work.)
 - Ajax CRUD Library Class
 - Upload and Search Library Classes 
-- Model written in to the core; An idea inspired by David Connely, except with a twist. The user will still be able to create models that overwrite the core Model.
+- Model written in to the core;The user will still be able to create models that overwrite the core Model.
 - And more...?!
 
 # Tutorials (Example Usage)
